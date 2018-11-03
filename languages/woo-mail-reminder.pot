@@ -1,0 +1,96 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-03 16:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: admin/class-woo-mail-reminder-admin.php:117
+msgid "Woo Mail Reminder Settings"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:118
+msgid "Woo Mail Reminder"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:149
+msgid "General"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:156
+msgid "Days after last order"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:174
+msgid "Subject"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:183
+msgid "Heading"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:192
+msgid "Message"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:203
+msgid "Test Mail"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:210
+msgid "Email Address"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:231
+msgid "Change the settings, according your needs."
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:240
+msgid "If you want to test your template, this is the section."
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:249
+msgid "days"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:329
+msgid "Test!"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:476
+msgid "Settings"
+msgstr ""
+
+#: includes/class-woo-mail-reminder-activator.php:36
+msgid "Please install and Activate WooCommerce."
+msgstr ""
+
+#. Name of the plugin
+msgid "WooCommerce Mail Reminder"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Send a message to your customers to remind them you have the best offers."
+msgstr ""
+
+#. URI of the plugin
+msgid "https://www.reandimo.site/woo-mail-reminder"
+msgstr ""
+
+#. Author of the plugin
+msgid "Renan Diaz"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.reandimo.site/"
+msgstr ""
