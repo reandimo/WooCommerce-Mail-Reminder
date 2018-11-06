@@ -160,6 +160,15 @@ class Woo_Mail_Reminder_Admin {
 				array( 'label_for' => $this->option_name . '_days' )
 			);
 
+		add_settings_field(
+				$this->option_name . '_intervals',
+				__( 'Send mail every', 'woo-mail-reminder' ),
+				array( $this, $this->option_name . '_intervals_cb' ),
+				$this->plugin_name,
+				$this->option_name . '_general',
+				array( 'label_for' => $this->option_name . '_intervals' )
+			);
+
 		// add_settings_field(
 		// 		$this->option_name . '_roles',
 		// 		__( 'Roles a enviar correo', 'woo-mail-reminder' ),
@@ -216,6 +225,7 @@ class Woo_Mail_Reminder_Admin {
 
 		// register_setting( $this->plugin_name, $this->option_name . '_roles', array( $this, $this->option_name . '_sanitize_roles' ) ); 
 		register_setting( $this->plugin_name, $this->option_name . '_days', 'intval' ); 
+		register_setting( $this->plugin_name, $this->option_name . '_intervals', 'intval' ); 
 		register_setting( $this->plugin_name, $this->option_name . '_subject' ); 
 		register_setting( $this->plugin_name, $this->option_name . '_heading' ); 
 		register_setting( $this->plugin_name, $this->option_name . '_message' ); 
@@ -246,7 +256,16 @@ class Woo_Mail_Reminder_Admin {
 	 * @since  1.0.0
 	 */
 	public function wmr_days_cb() {
-		echo '<input type="text" name="' . $this->option_name . '_days' . '" id="' . $this->option_name . '_days' . '" value="'. get_option( $this->option_name . '_days' ) .'"> '. __( 'days', 'woo-mail-reminder' );
+		echo '<input type="number" name="' . $this->option_name . '_days' . '" id="' . $this->option_name . '_days' . '" value="'. get_option( $this->option_name . '_days' ) .'"> '. __( 'days', 'woo-mail-reminder' );
+	} 
+
+/**
+	 * Render the treshold day input for this plugin
+	 *
+	 * @since  1.0.0
+	 */
+	public function wmr_intervals_cb() {
+		echo '<input type="number" name="' . $this->option_name . '_intervals' . '" id="' . $this->option_name . '_intervals' . '" value="'. get_option( $this->option_name . '_intervals' ) .'"> '. __( 'days', 'woo-mail-reminder' );
 	} 
 
 /**
@@ -385,6 +404,35 @@ class Woo_Mail_Reminder_Admin {
 
 	}
 
+
+
+/**
+	 * Interval to send mail.
+	 *
+	 * @since  1.0.0 
+ 	 * @param  84600, day in seconds
+ 	 *
+	 */
+
+	public function wmr_days_after($schedules) {
+
+        $days = get_option( $this->option_name . '_intervals' ); 
+        
+        if ( !empty($days) ) {
+	        $days = $days*86400;
+        }else{
+        	$days = 86400;
+        }
+
+	        $schedules[$this->option_name.'_days_after'] = array(
+	        								'interval' => $days,
+	        								'display'  => __("Days After Customer's Last Order")
+	        								);
+
+        return $schedules;
+
+	}
+
 /**
 	 * Get the heading, message and footer to send.
 	 *
@@ -398,7 +446,7 @@ class Woo_Mail_Reminder_Admin {
         $email_heading = get_option( $this->option_name . '_heading' );
         ob_start(); 
 		include_once( WMR_DIR . '/templates/email-header.php' );
-		echo get_option($this->option_name . '_message');
+		echo do_shortcode( get_option($this->option_name . '_message') );
 		include_once( WMR_DIR . '/templates/email-footer.php');
 		$output = ob_get_clean(); 
 

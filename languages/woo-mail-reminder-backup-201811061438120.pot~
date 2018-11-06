@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 14:38+0000\n"
+"POT-Creation-Date: 2018-11-03 16:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -30,48 +30,43 @@ msgstr ""
 msgid "Days after last order"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:165
-msgid "Send mail every"
-msgstr ""
-
-#: admin/class-woo-mail-reminder-admin.php:183
+#: admin/class-woo-mail-reminder-admin.php:174
 msgid "Subject"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:192
+#: admin/class-woo-mail-reminder-admin.php:183
 msgid "Heading"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:201
+#: admin/class-woo-mail-reminder-admin.php:192
 msgid "Message"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:212
+#: admin/class-woo-mail-reminder-admin.php:203
 msgid "Test Mail"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:219
+#: admin/class-woo-mail-reminder-admin.php:210
 msgid "Email Address"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:241
+#: admin/class-woo-mail-reminder-admin.php:231
 msgid "Change the settings, according your needs."
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:250
+#: admin/class-woo-mail-reminder-admin.php:240
 msgid "If you want to test your template, this is the section."
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:259
-#: admin/class-woo-mail-reminder-admin.php:268
+#: admin/class-woo-mail-reminder-admin.php:249
 msgid "days"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:348
+#: admin/class-woo-mail-reminder-admin.php:329
 msgid "Test!"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:524
+#: admin/class-woo-mail-reminder-admin.php:476
 msgid "Settings"
 msgstr ""
 

@@ -158,7 +158,9 @@ class Woo_Mail_Reminder {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_setting' );
-		$this->loader->add_action ('wmr_cron', $plugin_admin,'wmr_job'); 
+		$this->loader->add_action ('cron_schedules', $plugin_admin,'wmr_days_after');  
+		$this->loader->add_action ('wmr_cron', $plugin_admin,'wmr_job');   
+
 		// Action Links
 		$this->loader->add_action ('plugin_action_links_' . plugin_basename( WMR_FILE ), $plugin_admin,'wmr_action_links'); 
 		//Ajax

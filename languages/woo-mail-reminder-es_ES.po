@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Woocommerce Mail Reminder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-03 16:51+0000\n"
-"PO-Revision-Date: 2018-11-03 16:51+0000\n"
+"POT-Creation-Date: 2018-11-06 14:38+0000\n"
+"PO-Revision-Date: 2018-11-06 14:40+0000\n"
 "Last-Translator: reandimo <reandimo23@gmail.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -29,43 +29,48 @@ msgstr "General"
 msgid "Days after last order"
 msgstr "Dias después de la última compra"
 
-#: admin/class-woo-mail-reminder-admin.php:174
+#: admin/class-woo-mail-reminder-admin.php:165
+msgid "Send mail every"
+msgstr "Enviar correo cada"
+
+#: admin/class-woo-mail-reminder-admin.php:183
 msgid "Subject"
 msgstr "Asunto"
 
-#: admin/class-woo-mail-reminder-admin.php:183
+#: admin/class-woo-mail-reminder-admin.php:192
 msgid "Heading"
 msgstr "Cabecera"
 
-#: admin/class-woo-mail-reminder-admin.php:192
+#: admin/class-woo-mail-reminder-admin.php:201
 msgid "Message"
 msgstr "Mensaje"
 
-#: admin/class-woo-mail-reminder-admin.php:203
+#: admin/class-woo-mail-reminder-admin.php:212
 msgid "Test Mail"
 msgstr "Correo de Prueba"
 
-#: admin/class-woo-mail-reminder-admin.php:210
+#: admin/class-woo-mail-reminder-admin.php:219
 msgid "Email Address"
 msgstr "Correo"
 
-#: admin/class-woo-mail-reminder-admin.php:231
+#: admin/class-woo-mail-reminder-admin.php:241
 msgid "Change the settings, according your needs."
 msgstr "Ajusta las opciones, según tus necesidades."
 
-#: admin/class-woo-mail-reminder-admin.php:240
+#: admin/class-woo-mail-reminder-admin.php:250
 msgid "If you want to test your template, this is the section."
 msgstr "Si quieres probar la platilla, este es el lugar."
 
-#: admin/class-woo-mail-reminder-admin.php:249
+#: admin/class-woo-mail-reminder-admin.php:259
+#: admin/class-woo-mail-reminder-admin.php:268
 msgid "days"
 msgstr "dias"
 
-#: admin/class-woo-mail-reminder-admin.php:329
+#: admin/class-woo-mail-reminder-admin.php:348
 msgid "Test!"
 msgstr "Probar!"
 
-#: admin/class-woo-mail-reminder-admin.php:476
+#: admin/class-woo-mail-reminder-admin.php:524
 msgid "Settings"
 msgstr "Ajustes"
 

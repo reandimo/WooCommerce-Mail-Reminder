@@ -1,14 +1,13 @@
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Woocommerce Mail Reminder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-11-06 14:38+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"PO-Revision-Date: 2018-11-06 14:39+0000\n"
+"Last-Translator: reandimo <reandimo23@gmail.com>\n"
+"Language-Team: Spanish (Spain)\n"
+"Language: es_ES\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,7 +15,7 @@ msgstr ""
 
 #: admin/class-woo-mail-reminder-admin.php:117
 msgid "Woo Mail Reminder Settings"
-msgstr ""
+msgstr "Woo Mail Reminder Ajustes"
 
 #: admin/class-woo-mail-reminder-admin.php:118
 msgid "Woo Mail Reminder"
@@ -24,60 +23,60 @@ msgstr ""
 
 #: admin/class-woo-mail-reminder-admin.php:149
 msgid "General"
-msgstr ""
+msgstr "General"
 
 #: admin/class-woo-mail-reminder-admin.php:156
 msgid "Days after last order"
-msgstr ""
+msgstr "Dias después de la última compra"
 
 #: admin/class-woo-mail-reminder-admin.php:165
 msgid "Send mail every"
-msgstr ""
+msgstr "Enviar correo cada"
 
 #: admin/class-woo-mail-reminder-admin.php:183
 msgid "Subject"
-msgstr ""
+msgstr "Asunto"
 
 #: admin/class-woo-mail-reminder-admin.php:192
 msgid "Heading"
-msgstr ""
+msgstr "Cabecera"
 
 #: admin/class-woo-mail-reminder-admin.php:201
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 #: admin/class-woo-mail-reminder-admin.php:212
 msgid "Test Mail"
-msgstr ""
+msgstr "Correo de Prueba"
 
 #: admin/class-woo-mail-reminder-admin.php:219
 msgid "Email Address"
-msgstr ""
+msgstr "Correo"
 
 #: admin/class-woo-mail-reminder-admin.php:241
 msgid "Change the settings, according your needs."
-msgstr ""
+msgstr "Ajusta las opciones, según tus necesidades."
 
 #: admin/class-woo-mail-reminder-admin.php:250
 msgid "If you want to test your template, this is the section."
-msgstr ""
+msgstr "Si quieres probar la platilla, este es el lugar."
 
 #: admin/class-woo-mail-reminder-admin.php:259
 #: admin/class-woo-mail-reminder-admin.php:268
 msgid "days"
-msgstr ""
+msgstr "dias"
 
 #: admin/class-woo-mail-reminder-admin.php:348
 msgid "Test!"
-msgstr ""
+msgstr "Probar!"
 
 #: admin/class-woo-mail-reminder-admin.php:524
 msgid "Settings"
-msgstr ""
+msgstr "Ajustes"
 
 #: includes/class-woo-mail-reminder-activator.php:36
 msgid "Please install and Activate WooCommerce."
-msgstr ""
+msgstr "Por favor instala y Activa WooCommerce"
 
 #. Name of the plugin
 msgid "WooCommerce Mail Reminder"
@@ -87,6 +86,8 @@ msgstr ""
 msgid ""
 "Send a message to your customers to remind them you have the best offers."
 msgstr ""
+"Envía recordatorios a tus clientes y recuerdales que tienes las mejores "
+"ofertas."
 
 #. URI of the plugin
 msgid "https://www.reandimo.site/woo-mail-reminder"

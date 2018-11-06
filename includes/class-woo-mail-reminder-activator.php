@@ -36,7 +36,7 @@ class Woo_Mail_Reminder_Activator {
 	        wp_die( __( 'Please install and Activate WooCommerce.', 'woo-mail-reminder' ), 'Plugin dependency check', array( 'back_link' => true ) );
 	    }else{
 	    	if(!wp_next_scheduled('wmr_cron')) {
-				wp_schedule_event(time(),'daily','wmr_cron');
+				wp_schedule_event(time(), 'wmr_days_after','wmr_cron');
 			}
 	    }
 	}
