@@ -29,12 +29,12 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-	 $('select').select2();
+	 // $('select').select2();
 
-	 $(document).on('click', '#wmr_testmail_submit', function(){
+	 $(document).on('click', '#woomr_testmail_submit', function(){
 	 	
 	 	//Mail for testing
-	 	var mail = $('#wmr_testmail').val();
+	 	var mail = $('#woomr_testmail').val();
 	 	var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
 
 	 	if (mail !== null && mail !== '') {
@@ -48,7 +48,7 @@
 			 	});
 
 				var data = {
-					'action': 'wmr_test_mail',
+					'action': 'woomr_test_mail',
 					'mail': mail
 				};
 
@@ -56,7 +56,7 @@
 				jQuery.post(ajaxurl, data, function(response) { 
 
 					if (response == 1) {
-						alert('Mail sended!')
+						alert('Mail sent!')
 					}else{
 						alert('We cant send the email right now, try again!');
 					}

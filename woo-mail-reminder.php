@@ -38,10 +38,10 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
-define( 'WMR_FILE', __FILE__ ); // this file
-define( 'WMR_BASENAME', plugin_basename( WMR_FILE ) ); // plugin name as known by WP
-define( 'WMR_DIR', dirname( WMR_FILE ) ); // our directory
+define( 'WOOMR_VERSION', '1.0.0' );
+define( 'WOOMR_FILE', __FILE__ ); // this file
+define( 'WOOMR_BASENAME', plugin_basename( WOOMR_FILE ) ); // plugin name as known by WP
+define( 'WOOMR_DIR', dirname( WOOMR_FILE ) ); // our directory
 
 /**
  * The code that runs during plugin activation.

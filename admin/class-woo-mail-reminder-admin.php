@@ -73,8 +73,8 @@ class Woo_Mail_Reminder_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-mail-reminder-admin.css', array(), $this->version, 'all' );
-		wp_enqueue_style( 'select2-css', plugin_dir_url( __FILE__ ) . 'css/select2.css', array(), '', 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-mail-reminder-admin.css?' . rand(0, 10), array(), $this->version, 'all' );
+		wp_enqueue_style( 'select2-css', plugin_dir_url( __FILE__ ) . 'css/select2.css?' . rand(0, 10), array(), '', 'all' );
 	}
 
 	/**
@@ -97,11 +97,11 @@ class Woo_Mail_Reminder_Admin {
 		 */
 
 		//Select2
-		wp_enqueue_script( $this->plugin_name . 'select2-js', plugin_dir_url( __FILE__ ) . 'js/select2.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( $this->plugin_name . 'select2-js', plugin_dir_url( __FILE__ ) . 'js/select2.js?' . rand(0,10), array( 'jquery' ), '', true );
 		//blockUI
-		wp_enqueue_script(  $this->plugin_name . '_blockui-js', plugin_dir_url( __FILE__ ) . 'js/jquery.blockUI.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script(  $this->plugin_name . '_blockui-js', plugin_dir_url( __FILE__ ) . 'js/jquery.blockUI.js?' . rand(0,10), array( 'jquery' ), $this->version, true );
 		//Functions
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-mail-reminder-admin.js', array( 'jquery' ), $this->version, true );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-mail-reminder-admin.js?' . rand(0,10), array( 'jquery' ), $this->version, true );
 
 		
 	}
@@ -118,7 +118,7 @@ class Woo_Mail_Reminder_Admin {
 			__( 'Woo Mail Reminder', 'woo-mail-reminder' ),
 			'manage_options',
 			$this->plugin_name,
-			array( $this, 'wmr_display_options_page' )
+			array( $this, 'woomr_display_options_page' )
 		);
 	
 	}
@@ -128,7 +128,7 @@ class Woo_Mail_Reminder_Admin {
 	 *
 	 * @since  1.0.0
 	 */
-	public function wmr_display_options_page() {
+	public function woomr_display_options_page() {
 		include_once 'partials/woo-mail-reminder-admin-display.php';
 	}
 
@@ -139,7 +139,7 @@ class Woo_Mail_Reminder_Admin {
 	 * @access 	private
 	 * @var  	string 		$option_name 	Option name of this plugin
 	 */
-	private $option_name = 'wmr';
+	private $option_name = 'woomr';
 
 	public function register_setting() {
 
@@ -237,7 +237,7 @@ class Woo_Mail_Reminder_Admin {
 	 *
 	 * @since  1.0.0
 	 */
-	public function wmr_general_cb() {
+	public function woomr_general_cb() {
 		echo '<p>' . __( 'Change the settings, according your needs.', 'woo-mail-reminder' ) . '</p>'; 
 	} 
 
@@ -246,7 +246,7 @@ class Woo_Mail_Reminder_Admin {
 	 *
 	 * @since  1.0.0
 	 */
-	public function wmr_test_cb() {
+	public function woomr_test_cb() {
 		echo '<p>' . __( 'If you want to test your template, this is the section.', 'woo-mail-reminder' ) . '</p>'; 
 	} 
 
@@ -255,7 +255,7 @@ class Woo_Mail_Reminder_Admin {
 	 *
 	 * @since  1.0.0
 	 */
-	public function wmr_days_cb() {
+	public function woomr_days_cb() {
 		echo '<input type="number" name="' . $this->option_name . '_days' . '" id="' . $this->option_name . '_days' . '" value="'. get_option( $this->option_name . '_days' ) .'"> '. __( 'days', 'woo-mail-reminder' );
 	} 
 
@@ -264,7 +264,7 @@ class Woo_Mail_Reminder_Admin {
 	 *
 	 * @since  1.0.0
 	 */
-	public function wmr_intervals_cb() {
+	public function woomr_intervals_cb() {
 		echo '<input type="number" name="' . $this->option_name . '_intervals' . '" id="' . $this->option_name . '_intervals' . '" value="'. get_option( $this->option_name . '_intervals' ) .'"> '. __( 'days', 'woo-mail-reminder' );
 	} 
 
@@ -273,7 +273,7 @@ class Woo_Mail_Reminder_Admin {
 	 *
 	 * @since  1.0.0
 	 */
-	public function wmr_roles_cb() {
+	public function woomr_roles_cb() {
 
 		global $wp_roles;
 
@@ -307,7 +307,7 @@ class Woo_Mail_Reminder_Admin {
 	 * @since  1.0.0
 	 */
 
-	public function wmr_message_cb() {
+	public function woomr_message_cb() {
 
 		$content = get_option($this->option_name . '_message');
         wp_editor( $content, $this->option_name . '_message', $settings = array('textarea_rows'=> '10') );
@@ -320,7 +320,7 @@ class Woo_Mail_Reminder_Admin {
 	 * @since  1.0.0
 	 */
 
-	public function wmr_heading_cb() {
+	public function woomr_heading_cb() {
 		echo '<input type="text" name="' . $this->option_name . '_heading' . '" id="' . $this->option_name . '_heading' . '" value="'. get_option( $this->option_name . '_heading' ) .'"> ';
 	}
 
@@ -330,7 +330,7 @@ class Woo_Mail_Reminder_Admin {
 	 * @since  1.0.0
 	 */
 
-	public function wmr_subject_cb() {
+	public function woomr_subject_cb() {
 		echo '<input type="text" name="' . $this->option_name . '_subject' . '" id="' . $this->option_name . '_subject' . '" value="'. get_option( $this->option_name . '_subject' ) .'"> ';
 	}
 
@@ -340,7 +340,7 @@ class Woo_Mail_Reminder_Admin {
 	 * @since  1.0.0
 	 */
 
-	public function wmr_testmail_cb() {
+	public function woomr_testmail_cb() {
 		echo '<input type="email" name="' . $this->option_name . '_testmail' . '" id="' . $this->option_name . '_testmail' . '" value="'. get_option( $this->option_name . '_testmail' ) .'"> ';
 
 		$other_attributes = array( 'id' => $this->option_name . '_testmail_submit' );
@@ -355,7 +355,7 @@ class Woo_Mail_Reminder_Admin {
 	 * @since  1.0.0
 	 */
 
-	public function wmr_test_mail() {
+	public function woomr_test_mail() {
 
 		$test_mail = $_POST['mail'];
 
@@ -388,7 +388,7 @@ class Woo_Mail_Reminder_Admin {
 	 * @return string           Sanitized value
 	 */
 
-	public function wmr_sanitize_roles( $options ) {
+	public function woomr_sanitize_roles( $options ) {
 
 		$insert = '';
 
@@ -414,7 +414,7 @@ class Woo_Mail_Reminder_Admin {
  	 *
 	 */
 
-	public function wmr_days_after($schedules) {
+	public function woomr_days_after($schedules) {
 
         $days = get_option( $this->option_name . '_intervals' ); 
         
@@ -445,9 +445,9 @@ class Woo_Mail_Reminder_Admin {
 
         $email_heading = get_option( $this->option_name . '_heading' );
         ob_start(); 
-		include_once( WMR_DIR . '/templates/email-header.php' );
+		include_once( WOOMR_DIR . '/templates/email-header.php' );
 		echo do_shortcode( get_option($this->option_name . '_message') );
-		include_once( WMR_DIR . '/templates/email-footer.php');
+		include_once( WOOMR_DIR . '/templates/email-footer.php');
 		$output = ob_get_clean(); 
 
 		return $output;
@@ -462,7 +462,7 @@ class Woo_Mail_Reminder_Admin {
  	 *
 	 */
  
-	public function wmr_job() {
+	public function woomr_job() {
 
 		$args = array(
 			'role'           => 'customer',
@@ -519,7 +519,7 @@ class Woo_Mail_Reminder_Admin {
  * @param  array  $links List of existing plugin action links.
  * @return array         List of modified plugin action links.
  */
-function wmr_action_links( $links ) {
+function woomr_action_links( $links ) {
 	$links = array_merge( array(
 		'<a href="' . esc_url( admin_url( '/options-general.php?page=' . $this->plugin_name ) ) . '">' . __( 'Settings', 'woo-mail-reminder' ) . '</a>'
 	), $links );

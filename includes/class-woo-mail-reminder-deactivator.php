@@ -32,10 +32,10 @@ class Woo_Mail_Reminder_Deactivator {
 	public static function deactivate() {	
 
 		//find out when the last event was scheduled
-		$timestamp = wp_next_scheduled('wmr_cron');
+		$timestamp = wp_next_scheduled('woomr_cron');
 
 		//unschedule previous event if any
-		wp_unschedule_event($timestamp,'wmr_cron');
+		wp_unschedule_event($timestamp,'woomr_cron');
 	}
 
 }

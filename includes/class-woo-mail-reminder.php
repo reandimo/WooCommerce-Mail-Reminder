@@ -67,8 +67,8 @@ class Woo_Mail_Reminder {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
+		if ( defined( 'WOOMR_VERSION' ) ) {
+			$this->version = WOOMR_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
@@ -158,13 +158,13 @@ class Woo_Mail_Reminder {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_setting' );
-		$this->loader->add_action ('cron_schedules', $plugin_admin,'wmr_days_after');  
-		$this->loader->add_action ('wmr_cron', $plugin_admin,'wmr_job');   
+		$this->loader->add_action ('cron_schedules', $plugin_admin,'woomr_days_after');  
+		$this->loader->add_action ('woomr_cron', $plugin_admin,'woomr_job');   
 
 		// Action Links
-		$this->loader->add_action ('plugin_action_links_' . plugin_basename( WMR_FILE ), $plugin_admin,'wmr_action_links'); 
+		$this->loader->add_action ('plugin_action_links_' . plugin_basename( WOOMR_FILE ), $plugin_admin,'woomr_action_links'); 
 		//Ajax
-		$this->loader->add_action( 'wp_ajax_wmr_test_mail', $plugin_admin, 'wmr_test_mail' );
+		$this->loader->add_action( 'wp_ajax_woomr_test_mail', $plugin_admin, 'woomr_test_mail' );
 
 	}
 
