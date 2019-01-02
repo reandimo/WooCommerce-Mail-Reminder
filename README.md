@@ -20,4 +20,4 @@ The content can be anything you want, also accepts shortcodes of Woocommerce or 
 
 El plugin usa la misma plantilla de woocommerce, solo cambia el contenido. Así que solo tiene que configurar el contenido del correo electrónico y los días posteriores a la compra del cliente para recibir el mensaje y eso es todo.
 
-El contenido puede ser lo que quieras, también acepta códigos cortos de Woocommerce o cualquier plugin.
+El contenido puede ser lo que quieras, también acepta shortcodes de Woocommerce o cualquier plugin.
