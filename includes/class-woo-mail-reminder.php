@@ -115,6 +115,11 @@ class Woo_Mail_Reminder {
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-mail-reminder-admin.php';
+		
+		/**
+		 * TGM Require Plugins.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-tgm-plugin-activation.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -158,13 +163,26 @@ class Woo_Mail_Reminder {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_setting' );
+		$this->loader->add_action( 'init', $plugin_admin, 'woomr_reminder_post_type' );
+		$this->loader->add_action( 'init', $plugin_admin, 'woomr_preview_emails' ); //Preview Emails
 		$this->loader->add_action ('cron_schedules', $plugin_admin,'woomr_days_after');  
-		$this->loader->add_action ('woomr_cron', $plugin_admin,'woomr_job');   
-
+		$this->loader->add_action ('woomr_cron', $plugin_admin,'woomr_job');  
+		//Reminder Column
+		$this->loader->add_filter( 'manage_woomr_reminder_posts_columns', $plugin_admin, 'woomr_add_columns' );
+		$this->loader->add_action( 'manage_woomr_reminder_posts_custom_column', $plugin_admin, 'woomr_add_columns_content', 10, 2 );
+		//Quick Actions
+		$this->loader->add_filter( 'post_row_actions', $plugin_admin, 'woomr_reminder_quick_actions', 10, 2 ); 
+		$this->loader->add_filter( 'post_row_actions', $plugin_admin, 'woomr_remove_quick_actions', 10, 2 );
+		$this->loader->add_action( 'load-edit.php', $plugin_admin, 'woomr_set_status_reminder' );
+		//Check Requirements
+		$this->loader->add_action( 'tgmpa_register', $plugin_admin, 'woomr_register_required_plugins' );
+		//Metabox
+		$this->loader->add_filter( 'rwmb_meta_boxes', $plugin_admin, 'woomr_reminder_meta' );
 		// Action Links
 		$this->loader->add_action ('plugin_action_links_' . plugin_basename( WOOMR_FILE ), $plugin_admin,'woomr_action_links'); 
 		//Ajax
-		$this->loader->add_action( 'wp_ajax_woomr_test_mail', $plugin_admin, 'woomr_test_mail' );
+		$this->loader->add_action( 'wp_ajax_woomr_deactivate_reminder', $plugin_admin, 'woomr_deactivate_reminder' );
+		$this->loader->add_action( 'wp_ajax_woomr_test_mail', $plugin_admin, 'woomr_test_mail' ); 
 
 	}
 

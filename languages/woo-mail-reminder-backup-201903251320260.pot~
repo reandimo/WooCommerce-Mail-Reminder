@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-25 13:20+0000\n"
+"POT-Creation-Date: 2019-03-24 22:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -268,7 +268,7 @@ msgid "Reminder Options"
 msgstr ""
 
 #: admin/class-woo-mail-reminder-admin.php:309
-#: admin/class-woo-mail-reminder-admin.php:930
+#: admin/class-woo-mail-reminder-admin.php:928
 msgid "Days after"
 msgstr ""
 
@@ -291,7 +291,7 @@ msgstr ""
 
 #: admin/class-woo-mail-reminder-admin.php:319
 #: admin/class-woo-mail-reminder-admin.php:321
-#: admin/class-woo-mail-reminder-admin.php:932
+#: admin/class-woo-mail-reminder-admin.php:930
 msgid "Subject"
 msgstr ""
 
@@ -305,7 +305,7 @@ msgstr ""
 
 #: admin/class-woo-mail-reminder-admin.php:326
 #: admin/class-woo-mail-reminder-admin.php:328
-#: admin/class-woo-mail-reminder-admin.php:931
+#: admin/class-woo-mail-reminder-admin.php:929
 msgid "Heading"
 msgstr ""
 
@@ -390,60 +390,43 @@ msgstr ""
 msgid "Test!"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:614
-#: admin/class-woo-mail-reminder-admin.php:615
-msgid "This is a test email"
-msgstr ""
-
-#: admin/class-woo-mail-reminder-admin.php:616
-msgid "If you're reading this, means it's all good man!"
-msgstr ""
-
-#: admin/class-woo-mail-reminder-admin.php:622
-msgid "Test mail sent!"
-msgstr ""
-
-#: admin/class-woo-mail-reminder-admin.php:624
-msgid "Something went wrong, try again!"
-msgstr ""
-
-#: admin/class-woo-mail-reminder-admin.php:657
+#: admin/class-woo-mail-reminder-admin.php:655
 msgid "Reminder is now active!"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:659
+#: admin/class-woo-mail-reminder-admin.php:657
 msgid "Reminder deactivated!"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:913
+#: admin/class-woo-mail-reminder-admin.php:911
 msgid "Settings"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:933
+#: admin/class-woo-mail-reminder-admin.php:931
 msgid "Last Sent"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:934
+#: admin/class-woo-mail-reminder-admin.php:932
 msgid "Status"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:967
+#: admin/class-woo-mail-reminder-admin.php:965
 msgid "Never Sent"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:973
+#: admin/class-woo-mail-reminder-admin.php:971
 msgid "Active"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:973
+#: admin/class-woo-mail-reminder-admin.php:971
 msgid "Inactive"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:1002
+#: admin/class-woo-mail-reminder-admin.php:1000
 msgid "Set Inactive"
 msgstr ""
 
-#: admin/class-woo-mail-reminder-admin.php:1005
+#: admin/class-woo-mail-reminder-admin.php:1003
 msgid "Set Active"
 msgstr ""
 

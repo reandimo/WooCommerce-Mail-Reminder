@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Woocommerce Mail Reminder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-06 14:38+0000\n"
-"PO-Revision-Date: 2018-11-06 14:40+0000\n"
+"POT-Creation-Date: 2019-03-25 13:20+0000\n"
+"PO-Revision-Date: 2019-03-25 13:24+0000\n"
 "Last-Translator: reandimo <reandimo23@gmail.com>\n"
-"Language-Team: Spanish (Spain)\n"
+"Language-Team: Español\n"
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
@@ -13,66 +13,450 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/"
 
-#: admin/class-woo-mail-reminder-admin.php:117
-msgid "Woo Mail Reminder Settings"
-msgstr "Woo Mail Reminder Ajustes"
+#: admin/class-woo-mail-reminder-admin.php:124
+msgctxt "Post Type General Name"
+msgid "Reminders"
+msgstr "Recordatorios"
 
-#: admin/class-woo-mail-reminder-admin.php:118
-msgid "Woo Mail Reminder"
+#: admin/class-woo-mail-reminder-admin.php:125
+msgctxt "Post Type Singular Name"
+msgid "Reminder"
+msgstr "Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:126
+msgid "Reminders"
+msgstr "Recordatorios"
+
+#: admin/class-woo-mail-reminder-admin.php:127
+#: admin/class-woo-mail-reminder-admin.php:153
+msgid "Reminder"
+msgstr "Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:128
+msgid "Reminder Archives"
+msgstr "Archivos de Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:129
+msgid "Reminder Attributes"
+msgstr "Atributos del Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:130
+msgid "Parent Reminder:"
+msgstr "Recordatorio Padre:"
+
+#: admin/class-woo-mail-reminder-admin.php:131
+msgid "All Reminders"
+msgstr "Todos los Recordatorios"
+
+#: admin/class-woo-mail-reminder-admin.php:132
+msgid "Add New Reminder"
+msgstr "Agregar Nuevo Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:133
+msgid "Add New"
+msgstr "Agregar Nuevo"
+
+#: admin/class-woo-mail-reminder-admin.php:134
+msgid "New Reminder"
+msgstr "Nuevo Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:135
+msgid "Edit Reminder"
+msgstr "Editar Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:136
+msgid "Update Reminder"
+msgstr "Actualizar Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:137
+msgid "View Reminder"
+msgstr "Ver Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:138
+msgid "View Reminders"
+msgstr "Ver Recordatorios"
+
+#: admin/class-woo-mail-reminder-admin.php:139
+msgid "Search Reminder"
+msgstr "Buscar Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:140
+msgid "Not found"
 msgstr ""
 
+#: admin/class-woo-mail-reminder-admin.php:141
+msgid "Not found in Trash"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:142
+msgid "Featured Image"
+msgstr "Imagen Destacada"
+
+#: admin/class-woo-mail-reminder-admin.php:143
+msgid "Set featured image"
+msgstr "Colocar como imagen destacada"
+
+#: admin/class-woo-mail-reminder-admin.php:144
+msgid "Remove featured image"
+msgstr "Remover imagen destacada"
+
+#: admin/class-woo-mail-reminder-admin.php:145
+msgid "Use as featured image"
+msgstr "Usar como imagen destacada"
+
+#: admin/class-woo-mail-reminder-admin.php:146
+msgid "Insert into reminder"
+msgstr "Insertar en un recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:147
+msgid "Uploaded to this reminder"
+msgstr "Subido a este Recordatorio"
+
+#: admin/class-woo-mail-reminder-admin.php:148
+msgid "Reminders list"
+msgstr "Lista de Recordatorios"
+
 #: admin/class-woo-mail-reminder-admin.php:149
-msgid "General"
-msgstr "General"
+msgid "Reminders list navigation"
+msgstr "Lista de navegación de Recordatorios"
 
-#: admin/class-woo-mail-reminder-admin.php:156
-msgid "Days after last order"
-msgstr "Dias después de la última compra"
+#: admin/class-woo-mail-reminder-admin.php:150
+msgid "Filter items list"
+msgstr "Filtrar lista de elementos"
 
-#: admin/class-woo-mail-reminder-admin.php:165
-msgid "Send mail every"
-msgstr "Enviar correo cada"
+#: admin/class-woo-mail-reminder-admin.php:154
+msgid "Reminders to Clients"
+msgstr "Recordatorios a Clientes"
 
-#: admin/class-woo-mail-reminder-admin.php:183
+#: admin/class-woo-mail-reminder-admin.php:210
+msgid "Install Required Plugins"
+msgstr "Instalar Plugins Requeridos"
+
+#: admin/class-woo-mail-reminder-admin.php:211
+msgid "Install Plugins"
+msgstr "Instalar Plugins"
+
+#. %s: plugin name.
+#: admin/class-woo-mail-reminder-admin.php:213
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#. %s: plugin name.
+#: admin/class-woo-mail-reminder-admin.php:215
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:216
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:217
+#, php-format
+msgid "Woo Mail Reminder plugin requires the following plugin: %1$s."
+msgid_plural "Woo Mail Reminder plugin requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-woo-mail-reminder-admin.php:223
+#, php-format
+msgid "This plugin recommends the following plugin: %1$s."
+msgid_plural "This plugin recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-woo-mail-reminder-admin.php:229
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this plugin: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this plugin: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-woo-mail-reminder-admin.php:235
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-woo-mail-reminder-admin.php:241
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-woo-mail-reminder-admin.php:247
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-woo-mail-reminder-admin.php:253
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-woo-mail-reminder-admin.php:258
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-woo-mail-reminder-admin.php:263
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: admin/class-woo-mail-reminder-admin.php:268
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:269
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:270
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#. 1: plugin name.
+#: admin/class-woo-mail-reminder-admin.php:272
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#. 1: plugin name.
+#: admin/class-woo-mail-reminder-admin.php:274
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this plugin. "
+"Please update the plugin."
+msgstr ""
+
+#. 1: dashboard link.
+#: admin/class-woo-mail-reminder-admin.php:276
+#, php-format
+msgid "All Good!. All plugins installed and activated successfully. %1$s"
+msgstr ""
+"Todo Bien!. Todos los plugins fueron instalados y activados exitosamete. %1$s"
+
+#: admin/class-woo-mail-reminder-admin.php:277
+msgid "Dismiss this notice"
+msgstr "Cerrar esta notificación"
+
+#: admin/class-woo-mail-reminder-admin.php:278
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+"Hay uno o más plugins requeridos o recomendados a instalar, actualizar o "
+"activar."
+
+#: admin/class-woo-mail-reminder-admin.php:279
+msgid "Please contact the administrator of this site for help."
+msgstr "Por favor contacte al administrador del sitio para ayuda."
+
+#: admin/class-woo-mail-reminder-admin.php:300
+msgid "Reminder Options"
+msgstr "Opciones de Recordatorios"
+
+#: admin/class-woo-mail-reminder-admin.php:309
+#: admin/class-woo-mail-reminder-admin.php:930
+msgid "Days after"
+msgstr "Días Después"
+
+#: admin/class-woo-mail-reminder-admin.php:309
+#: admin/class-woo-mail-reminder-admin.php:312
+msgid "Days After"
+msgstr "Días Después"
+
+#: admin/class-woo-mail-reminder-admin.php:309
+msgid ""
+"The interval of time between the customer's last order and the current date, "
+"for sending the reminders in days. Example: if you set 10 days, when the "
+"server checks the reminders only will be sent to customers with 10 days "
+"after."
+msgstr ""
+"El intervalo de tiempo entre el último pedido del cliente y la fecha actual, "
+"para enviar los recordatorios en días. Ejemplo: si se establece 10 días, "
+"cuando el servidor verifique los recordatorios solo se enviarán a los "
+"clientes 10 días después de su ultima compra."
+
+#: admin/class-woo-mail-reminder-admin.php:310
+msgid "Number of days after customer's last order"
+msgstr "Número de días después de la última compra del cliente"
+
+#: admin/class-woo-mail-reminder-admin.php:319
+#: admin/class-woo-mail-reminder-admin.php:321
+#: admin/class-woo-mail-reminder-admin.php:932
 msgid "Subject"
 msgstr "Asunto"
 
-#: admin/class-woo-mail-reminder-admin.php:192
+#: admin/class-woo-mail-reminder-admin.php:319
+msgid "The Subject of the Email."
+msgstr "El Asunto del Correo."
+
+#: admin/class-woo-mail-reminder-admin.php:320
+msgid "Email subject"
+msgstr "Asunto del Correo"
+
+#: admin/class-woo-mail-reminder-admin.php:326
+#: admin/class-woo-mail-reminder-admin.php:328
+#: admin/class-woo-mail-reminder-admin.php:931
 msgid "Heading"
 msgstr "Cabecera"
 
-#: admin/class-woo-mail-reminder-admin.php:201
-msgid "Message"
-msgstr "Mensaje"
+#: admin/class-woo-mail-reminder-admin.php:326
+msgid "Set a Heading for the email template."
+msgstr "Establece una Cabecera para la plantilla del Correo"
 
-#: admin/class-woo-mail-reminder-admin.php:212
+#: admin/class-woo-mail-reminder-admin.php:327
+msgid "Email's Heading"
+msgstr "Cabecera del Correo"
+
+#: admin/class-woo-mail-reminder-admin.php:333
+msgid "Divider"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:338
+msgid "Preview"
+msgstr "Previsualizar"
+
+#: admin/class-woo-mail-reminder-admin.php:339
+msgid "If you want to preview your template, this is the button."
+msgstr "Si quieres previsualizar tu plantilla, este es el botón."
+
+#: admin/class-woo-mail-reminder-admin.php:364
+msgid "Woo Mail Reminder Settings"
+msgstr "Woo Mail Reminder Ajustes"
+
+#: admin/class-woo-mail-reminder-admin.php:365
+msgid "Woo Mail Reminder"
+msgstr "Recordatorios por Correo para Woocommerce"
+
+#: admin/class-woo-mail-reminder-admin.php:396
+msgid "General"
+msgstr "General"
+
+#: admin/class-woo-mail-reminder-admin.php:412
+msgid "Check for Reminders every"
+msgstr "Verifica los recordatorios cada"
+
+#: admin/class-woo-mail-reminder-admin.php:412
+msgid "The Interval"
+msgstr "El Intervalo"
+
+#: admin/class-woo-mail-reminder-admin.php:412
+msgid ""
+"The interval of time for sending the reminders (cron job), in days. Example: "
+"if you set 5 days, the server will check the reminders every 5 days."
+msgstr ""
+"El Intervalo de Tiempo para que el servidor chequee los recordatorios (cron "
+"job), en días. Ejemplo: si colocas 5 días, el servidor revisara los "
+"recordatorios para el envío cada 5 días."
+
+#: admin/class-woo-mail-reminder-admin.php:439
+msgid "Default Heading"
+msgstr "Cabecera por defecto"
+
+#: admin/class-woo-mail-reminder-admin.php:439
+msgid ""
+"Set a Default Heading for the email templates in case you didn't assign one "
+"to a reminder."
+msgstr ""
+"Establezca un encabezado predeterminado para las plantillas de correo "
+"electrónico en caso de que no haya asignado una a un recordatorio."
+
+#: admin/class-woo-mail-reminder-admin.php:459
 msgid "Test Mail"
 msgstr "Correo de Prueba"
 
-#: admin/class-woo-mail-reminder-admin.php:219
+#: admin/class-woo-mail-reminder-admin.php:466
 msgid "Email Address"
 msgstr "Correo"
 
-#: admin/class-woo-mail-reminder-admin.php:241
+#: admin/class-woo-mail-reminder-admin.php:488
 msgid "Change the settings, according your needs."
 msgstr "Ajusta las opciones, según tus necesidades."
 
-#: admin/class-woo-mail-reminder-admin.php:250
+#: admin/class-woo-mail-reminder-admin.php:497
 msgid "If you want to test your template, this is the section."
 msgstr "Si quieres probar la platilla, este es el lugar."
 
-#: admin/class-woo-mail-reminder-admin.php:259
-#: admin/class-woo-mail-reminder-admin.php:268
+#: admin/class-woo-mail-reminder-admin.php:506
+#: admin/class-woo-mail-reminder-admin.php:515
 msgid "days"
 msgstr "dias"
 
-#: admin/class-woo-mail-reminder-admin.php:348
+#: admin/class-woo-mail-reminder-admin.php:595
 msgid "Test!"
 msgstr "Probar!"
 
-#: admin/class-woo-mail-reminder-admin.php:524
+#: admin/class-woo-mail-reminder-admin.php:614
+#: admin/class-woo-mail-reminder-admin.php:615
+msgid "This is a test email"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:616
+msgid "If you're reading this, means it's all good man!"
+msgstr "Si lees esto significa que todo esta bien, bro!"
+
+#: admin/class-woo-mail-reminder-admin.php:622
+msgid "Test mail sent!"
+msgstr "Correo de prueba enviado!"
+
+#: admin/class-woo-mail-reminder-admin.php:624
+msgid "Something went wrong, try again!"
+msgstr "Algo salió mal, intenta nuevamente!"
+
+#: admin/class-woo-mail-reminder-admin.php:657
+msgid "Reminder is now active!"
+msgstr "Recordatorio Activado!"
+
+#: admin/class-woo-mail-reminder-admin.php:659
+msgid "Reminder deactivated!"
+msgstr "Recordatorio Desactivado!"
+
+#: admin/class-woo-mail-reminder-admin.php:913
 msgid "Settings"
 msgstr "Ajustes"
+
+#: admin/class-woo-mail-reminder-admin.php:933
+msgid "Last Sent"
+msgstr "Ultimo Envío"
+
+#: admin/class-woo-mail-reminder-admin.php:934
+msgid "Status"
+msgstr ""
+
+#: admin/class-woo-mail-reminder-admin.php:967
+msgid "Never Sent"
+msgstr "Nunca Enviado"
+
+#: admin/class-woo-mail-reminder-admin.php:973
+msgid "Active"
+msgstr "Activo"
+
+#: admin/class-woo-mail-reminder-admin.php:973
+msgid "Inactive"
+msgstr "Inactivo"
+
+#: admin/class-woo-mail-reminder-admin.php:1002
+msgid "Set Inactive"
+msgstr "Desactivar"
+
+#: admin/class-woo-mail-reminder-admin.php:1005
+msgid "Set Active"
+msgstr "Activar"
 
 #: includes/class-woo-mail-reminder-activator.php:36
 msgid "Please install and Activate WooCommerce."
@@ -80,7 +464,7 @@ msgstr "Por favor instala y Activa WooCommerce"
 
 #. Name of the plugin
 msgid "WooCommerce Mail Reminder"
-msgstr ""
+msgstr "Recordatorios por Correo para Woocommerce"
 
 #. Description of the plugin
 msgid ""

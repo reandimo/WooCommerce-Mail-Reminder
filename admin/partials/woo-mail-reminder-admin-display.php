@@ -12,6 +12,10 @@
  * @subpackage Woo_Mail_Reminder/admin/partials
  */ 
 
+
+		//Include Bootstrap
+		wp_enqueue_script(  $this->plugin_name . '_bootstrap-js', plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'assets/bootstrap/js/bootstrap.min.js?' . rand(0,10), array( 'jquery' ), false, true );
+
 ?>
  
 	<div class="wrap">
