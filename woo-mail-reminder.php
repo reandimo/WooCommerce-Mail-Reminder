@@ -16,7 +16,7 @@
  * Plugin Name:       WooCommerce Mail Reminder
  * Plugin URI:        https://www.reandimo.dev/woo-mail-reminder
  * Description:       Send a message to your customers to remind them you have the best offers.
- * Version:           1.1.0
+ * Version:           1.1.2
  * Author:            Renan Diaz
  * Author URI:        https://www.reandimo.dev/
  * License:           GPL-2.0+

@@ -5,7 +5,7 @@ Tags: woocommerce, mail, email, custom, template, reminder, order, message, note
 Requires at least: 4.4
 Requires PHP: 5.2
 Tested up to: 5.4
-Stable tag: 1.2.0
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
