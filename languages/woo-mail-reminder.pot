@@ -461,7 +461,7 @@ msgid ""
 msgstr ""
 
 #. URI of the plugin
-msgid "https://www.reandimo.site/woo-mail-reminder"
+msgid "https://www.reandimo.dev/woo-mail-reminder"
 msgstr ""
 
 #. Author of the plugin
@@ -469,5 +469,5 @@ msgid "Renan Diaz"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "https://www.reandimo.site/"
+msgid "https://www.reandimo.dev/"
 msgstr ""

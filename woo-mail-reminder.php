@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://www.reandimo.site/
+ * @link              https://www.reandimo.dev/
  * @since             1.0.0
  * @package           Woo_Mail_Reminder
  *
  * @wordpress-plugin
  * Plugin Name:       WooCommerce Mail Reminder
- * Plugin URI:        https://www.reandimo.site/woo-mail-reminder
+ * Plugin URI:        https://www.reandimo.dev/woo-mail-reminder
  * Description:       Send a message to your customers to remind them you have the best offers.
  * Version:           1.1.0
  * Author:            Renan Diaz
- * Author URI:        https://www.reandimo.site/
+ * Author URI:        https://www.reandimo.dev/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       woo-mail-reminder
@@ -38,7 +38,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'WOOMR_VERSION', '1.1.0' );
+define( 'WOOMR_VERSION', '1.1.2' );
 define( 'WOOMR_FILE', __FILE__ ); // this file
 define( 'WOOMR_BASENAME', plugin_basename( WOOMR_FILE ) ); // plugin name as known by WP
 define( 'WOOMR_DIR', dirname( WOOMR_FILE ) ); // our directory

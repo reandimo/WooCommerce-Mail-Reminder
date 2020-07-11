@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://www.reandimo.site/
+ * @link       https://www.reandimo.dev/
  * @since      1.0.0
  *
  * @package    Woo_Mail_Reminder
@@ -169,119 +169,7 @@ function woomr_reminder_post_type() {
 	);
 	register_post_type( 'woomr_reminder', $args );
 
-} 
-
-/**
-	 * Check dependencies
-	 *
-	 * @since  1.0.0
-*/
-
-function woomr_register_required_plugins() {
-    $plugins = array(
-        array(
-            'name'     => 'Meta Box',
-            'slug'     => 'meta-box',
-            'required' => true,
-        ),
-        array(
-            'name'     => 'WooCommerce',
-            'slug'     => 'woocommerce',
-            'required' => true,
-        ),
-        // More plugins
-    );
-	$config = array(
-		'id'           => 'woo-mail-reminder',                 // Unique ID for hashing notices for multiple instances of TGMPA.
-		'default_path' => '',                      // Default absolute path to bundled plugins.
-		'menu'         => 'tgmpa-install-plugins', // Menu slug.
-		'parent_slug'  => 'plugins.php',            // Parent menu slug.
-		'capability'   => 'manage_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
-		'has_notices'  => true,                    // Show admin notices or not.
-		'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
-		'is_automatic' => true,                   // Automatically activate plugins after installation or not.
-		'message'      => '',                      // Message to output right before the plugins table.
-
-		
-		'strings'      => array(
-			'page_title'                      => __( 'Install Required Plugins', 'woo-mail-reminder' ),
-			'menu_title'                      => __( 'Install Plugins', 'woo-mail-reminder' ),
-			/* translators: %s: plugin name. */
-			'installing'                      => __( 'Installing Plugin: %s', 'woo-mail-reminder' ),
-			/* translators: %s: plugin name. */
-			'updating'                        => __( 'Updating Plugin: %s', 'woo-mail-reminder' ),
-			'oops'                            => __( 'Something went wrong with the plugin API.', 'woo-mail-reminder' ),
-			'notice_can_install_required'     => _n_noop(
-				/* translators: 1: plugin name(s). */
-				'Woo Mail Reminder plugin requires the following plugin: %1$s.',
-				'Woo Mail Reminder plugin requires the following plugins: %1$s.',
-				'woo-mail-reminder'
-			),
-			'notice_can_install_recommended'  => _n_noop(
-				/* translators: 1: plugin name(s). */
-				'This plugin recommends the following plugin: %1$s.',
-				'This plugin recommends the following plugins: %1$s.',
-				'woo-mail-reminder'
-			),
-			'notice_ask_to_update'            => _n_noop(
-				/* translators: 1: plugin name(s). */
-				'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this plugin: %1$s.',
-				'The following plugins need to be updated to their latest version to ensure maximum compatibility with this plugin: %1$s.',
-				'woo-mail-reminder'
-			),
-			'notice_ask_to_update_maybe'      => _n_noop(
-				/* translators: 1: plugin name(s). */
-				'There is an update available for: %1$s.',
-				'There are updates available for the following plugins: %1$s.',
-				'woo-mail-reminder'
-			),
-			'notice_can_activate_required'    => _n_noop(
-				/* translators: 1: plugin name(s). */
-				'The following required plugin is currently inactive: %1$s.',
-				'The following required plugins are currently inactive: %1$s.',
-				'woo-mail-reminder'
-			),
-			'notice_can_activate_recommended' => _n_noop(
-				/* translators: 1: plugin name(s). */
-				'The following recommended plugin is currently inactive: %1$s.',
-				'The following recommended plugins are currently inactive: %1$s.',
-				'woo-mail-reminder'
-			),
-			'install_link'                    => _n_noop(
-				'Begin installing plugin',
-				'Begin installing plugins',
-				'woo-mail-reminder'
-			),
-			'update_link' 					  => _n_noop(
-				'Begin updating plugin',
-				'Begin updating plugins',
-				'woo-mail-reminder'
-			),
-			'activate_link'                   => _n_noop(
-				'Begin activating plugin',
-				'Begin activating plugins',
-				'woo-mail-reminder'
-			),
-			'return'                          => __( 'Return to Required Plugins Installer', 'woo-mail-reminder' ),
-			'plugin_activated'                => __( 'Plugin activated successfully.', 'woo-mail-reminder' ),
-			'activated_successfully'          => __( 'The following plugin was activated successfully:', 'woo-mail-reminder' ),
-			/* translators: 1: plugin name. */
-			'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'woo-mail-reminder' ),
-			/* translators: 1: plugin name. */
-			'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this plugin. Please update the plugin.', 'woo-mail-reminder' ),
-			/* translators: 1: dashboard link. */
-			'complete'                        => __( 'All Good!. All plugins installed and activated successfully. %1$s', 'woo-mail-reminder' ),
-			'dismiss'                         => __( 'Dismiss this notice', 'woo-mail-reminder' ),
-			'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'woo-mail-reminder' ),
-			'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'woo-mail-reminder' ),
-
-			'nag_type'                        => '', // Determines admin notice type - can only be one of the typical WP notice classes, such as 'updated', 'update-nag', 'notice-warning', 'notice-info' or 'error'. Some of which may not work as expected in older WP versions.
-		),
-		
-	);
-    tgmpa( $plugins, $config );
-}
+}  
 
 /**
 	 * Metabox
@@ -605,8 +493,7 @@ function woomr_reminder_meta( $meta_boxes ) {
 		$test_mail = $_POST['mail'];
 
 		if ( !empty($test_mail) ) {
-			// load the mailer class
-			$mailer = WC()->mailer();
+			
 			//format the email
 			$recipient = $test_mail;
 			$subject = esc_html__('This is a test email', 'woo-mail-reminder');
@@ -616,11 +503,13 @@ function woomr_reminder_meta( $meta_boxes ) {
 			$headers = "Content-Type: text/html\r\n";
 			//send the email through wordpress
 
-			if ( $mailer->send( $recipient, $subject, $content, $headers ) ) {
+			if ( wp_mail( $recipient, $subject, $content, $headers ) ) {
 				echo json_encode( ['code' => 1, 'message' => __('Test mail sent!', 'woo-mail-reminder')] ); //All Good bro!
 			}else{
 				echo json_encode( ['code' => 0, 'message' => __('Something went wrong, try again!', 'woo-mail-reminder')] ); //We have a problem
 			}
+		}else{
+			echo json_encode( ['code' => 0, 'message' => __('No hay correo para enviar.', 'woo-mail-reminder')] ); //We have a problem
 		}
 
 		wp_die();
@@ -711,7 +600,7 @@ function woomr_reminder_meta( $meta_boxes ) {
 
 	        $schedules[$this->option_name.'_days_after'] = array(
 	        								'interval' => $days,
-	        								'display'  => __("Days After Customer's Last Order")
+	        								'display'  => __("Days After Customer's Last Order", 'woo-mail-reminder')
 	        								);
 
         return $schedules;
@@ -759,29 +648,30 @@ function woomr_reminder_meta( $meta_boxes ) {
 	 */
 	public function woomr_preview_emails() {
 
-			if ( isset( $_GET['preview_woomr_mail'] ) ) {
-				if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'woomr-preview' ) ) {
-					die( 'Security check' );
-				}
-
-				// load the mailer class
-				$mailer = WC()->mailer(); 
-
-				// get the preview email content
-				$message = do_shortcode( stripslashes( $_REQUEST['content'] ) ); 
-
-				$email_heading = stripslashes ( $_REQUEST['heading'] );
-
-				// create a new email
-				$email = new WC_Email();
-
-				// wrap the content with the email template and then add styles
-				$output = apply_filters( 'woocommerce_mail_content', $email->style_inline( $mailer->wrap_message( $email_heading, $message ) ) );
-
-				// print the preview email
-				echo $output;
-				exit;
+		if ( isset( $_GET['preview_woomr_mail'] ) ) {
+			if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'woomr-preview' ) ) {
+				die( 'Security check' );
 			}
+
+			// load the mailer class
+			$mailer = WC()->mailer(); 
+
+			// get the preview email content
+			$message = do_shortcode( stripslashes( $_REQUEST['content'] ) ); 
+
+			$email_heading = stripslashes ( $_REQUEST['heading'] );
+
+			// create a new email
+			$email = new WC_Email();
+
+			// wrap the content with the email template and then add styles
+			$output = apply_filters( 'woocommerce_mail_content', $email->style_inline( $mailer->wrap_message( $email_heading, $message ) ) );
+
+			// print the preview email
+			echo $output;
+			exit;
+		}
+
 	}
 
 /**
@@ -873,15 +763,13 @@ function woomr_reminder_meta( $meta_boxes ) {
 						} //endif Empty Order
 
 					} //endforeach Customers 
-
-					// load the mailer class
-					$mailer = WC()->mailer();
+ 
 					//format the email
 					$recipient = $list;
 					//Headers
 					$headers = "Content-Type: text/html\r\n";
-					//send the email through wordpress
-					$mailer->send( $recipient, $subject, $content, $headers );
+					//send the email through wordpress 
+					wp_mail( $recipient, $subject, $content, $headers );
 
 					//Update Last Date
 					update_post_meta( $reminder_id, 'last_sent', date('Y-m-d') );
@@ -968,7 +856,7 @@ function woomr_reminder_meta( $meta_boxes ) {
 
 			case 'status':
 				$meta = get_post_meta( $post_id, 'status', true);
-				$date = ( $meta == 1 ) ? __( 'Active', 'woo-mail-reminder') : __( 'Inactive', 'woo-mail-reminder') ;
+				$date = ( $meta == 1 ) ? '<span class="dashicons dashicons-yes"></span> ' . __( 'Active', 'woo-mail-reminder') : '<span class="dashicons dashicons-no-alt"></span>' . __( 'Inactive', 'woo-mail-reminder') ;
 				echo $date;
 			break;
 

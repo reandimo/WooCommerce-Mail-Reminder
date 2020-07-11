@@ -5,7 +5,7 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       https://www.reandimo.site/
+ * @link       https://www.reandimo.dev/
  * @since      1.0.0
  *
  * @package    Woo_Mail_Reminder
@@ -13,8 +13,8 @@
  */ 
 
 
-		//Include Bootstrap
-		wp_enqueue_script(  $this->plugin_name . '_bootstrap-js', plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'assets/bootstrap/js/bootstrap.min.js?' . rand(0,10), array( 'jquery' ), false, true );
+	//Include Bootstrap
+	wp_enqueue_script(  $this->plugin_name . '_bootstrap-js', plugin_dir_url( dirname( dirname( __FILE__ ) ) ) . 'assets/bootstrap/js/bootstrap.min.js?' . rand(0,10), array( 'jquery' ), false, true );
 
 ?>
  
@@ -28,10 +28,10 @@
 	        ?>
 	    </form>
 
-	        <?php
-	            settings_fields( $this->plugin_name . '_test_section' );
-	            do_settings_sections( $this->plugin_name . '_test_section' ); 
-	        ?>
+        <?php
+            settings_fields( $this->plugin_name . '_test_section' );
+            do_settings_sections( $this->plugin_name . '_test_section' ); 
+        ?>
 
 	</div>
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->

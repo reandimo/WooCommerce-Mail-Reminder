@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://www.reandimo.site/
+ * @link       https://www.reandimo.dev/
  * @since      1.0.0
  *
  * @package    Woo_Mail_Reminder

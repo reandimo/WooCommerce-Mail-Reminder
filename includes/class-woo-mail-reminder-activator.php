@@ -3,7 +3,7 @@
 /**
  * Fired during plugin activation
  *
- * @link       https://www.reandimo.site/
+ * @link       https://www.reandimo.dev/
  * @since      1.0.0
  *
  * @package    Woo_Mail_Reminder

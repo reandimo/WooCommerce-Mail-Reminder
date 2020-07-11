@@ -1,11 +1,11 @@
 === Woo Mail Reminder ===
 Contributors: reandimo
-Donate link: https://www.reandimo.site/donate
+Donate link: https://www.reandimo.dev/donate
 Tags: woocommerce, mail, email, custom, template, reminder, order, message, note, recordatorio, correo, compras
 Requires at least: 4.4
 Requires PHP: 5.2
-Tested up to: 5.1
-Stable tag: 1.0.0
+Tested up to: 5.4
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,20 +33,22 @@ With this plugin you can send an email to your customers who have made a purchas
 
 == Dependencies ==
 
-* WooCommerce
-* MetaBox Framework
+* WooCommerce 
 
 = Minimum Requirements =
 
 * PHP version 5.2.4 or greater (PHP 7.2 or greater is recommended)
 
 1. Make sure you are using WordPress 4.4 or later and that your server is running PHP 5.2.4 or later (same requirement as WordPress itself)
-2. Make sure WooCommerce is Activated
-3. Make sure MetaBox Framework is Activated
+2. Make sure WooCommerce is Activated 
 4. Install and activate the plugin as usual from the 'Plugins' menu in WordPress.
 5. Go to the Settings -> Woo Mail Reminder page and configure the settings  
 
 == Changelog ==
+
+= 1.2 (11-07-2020) =
+* FIX: Metabox.io integrated in plugin
+* Fix minor bugs, delete unnecesary dependencies and reorder code
 
 = 1.1 (23-03-2019) =
 * NEW: Reminders Post Type Created. Now you can add many reminders as you wish and customize with the editor and set the options for the cron execution.

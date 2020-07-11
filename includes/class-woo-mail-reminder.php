@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://www.reandimo.site/
+ * @link       https://www.reandimo.dev/
  * @since      1.0.0
  *
  * @package    Woo_Mail_Reminder
@@ -115,11 +115,6 @@ class Woo_Mail_Reminder {
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-woo-mail-reminder-admin.php';
-		
-		/**
-		 * TGM Require Plugins.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-tgm-plugin-activation.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
@@ -127,6 +122,13 @@ class Woo_Mail_Reminder {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-woo-mail-reminder-public.php';
 
+		/**
+		 * Metabox.io
+		 */ 
+		if ( ! class_exists( 'RW_Meta_Box' ) ) {
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/meta-box/meta-box.php';
+		}
+		
 		$this->loader = new Woo_Mail_Reminder_Loader();
 
 	}
