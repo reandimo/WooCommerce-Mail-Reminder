@@ -14,7 +14,7 @@ Con este plugin podras enviarle un correo a tus clientes que hayan realizado una
 
 The plugin uses the same template of woocommerce, only changes the content. So you just have to set the content of the email and the days after the customer made a purchase to receive the message and that's it.
 
-The content can be anything you want, also accepts shortcodes of Woocommerce or any plugin.
+The content can be anything you want, also accepts shortcodes of Woocommerce or any plugin (Remember, is just an email, some shortcodes may not show).
 
 = Features  =
 
@@ -32,16 +32,16 @@ The content can be anything you want, also accepts shortcodes of Woocommerce or 
 
 El plugin usa la misma plantilla de woocommerce, solo cambia el contenido. Así que solo tiene que configurar el contenido del correo electrónico y los días posteriores a la compra del cliente para recibir el mensaje y eso es todo.
 
-El contenido puede ser lo que quieras, también acepta shortcodes de Woocommerce o cualquier plugin.
+El contenido puede ser lo que quieras, también acepta shortcodes de Woocommerce o cualquier plugin (Ten en cuenta que al final del dia es un correo, algunos pueden no funcionar).
 
 = Características =
 
 * Puede establecer un encabezado, asunto y mensaje que desea enviar a sus clientes.
 * Configure el intervalo de días del trabajo cron que envía el mensaje de correo electrónico.
 * Configure el intervalo de días desde la última compra del cliente para enviar el mensaje.
-* Recordatorios tipo de publicación creados. Ahora puede agregar tantos recordatorios como desee y personalizar con el editor, ademas de  configurar las opciones para la ejecución cron.
-* ¡Puede ver la última vez que el trabajo cron envió todos los recordatorios en la tabla de tipo de publicación!
+* Recordatorios como post type. Ahora puede agregar tantos recordatorios como quieras y personalizar con el editor de WordPress, ademas de  configurar las opciones para la ejecución cron.
+* ¡Puedes ver la última vez que el trabajo cron envió todos los recordatorios en la tabla de Recordatorios!
 * Ahora puedes previsualizar tus plantillas con un simple clic.
-* Active o desactive cualquier recordatorio si no desea enviarlo.
+* Activa o desactiva cualquier recordatorio si no desea enviarlo.
 * Establezca un titulo predeterminado para las plantillas de correo electrónico si no desea personalizar cada titulo.
-* ¡Preparado para Polylang!. Maneja sitios de varios idiomas y enviar recordatorios en la configuración regional de su cliente B-).
+* ¡Listo para Polylang!. Maneja sitios de varios idiomas y enviar recordatorios en la configuración regional de su cliente B-).
