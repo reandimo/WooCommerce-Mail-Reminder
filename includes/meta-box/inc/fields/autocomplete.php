@@ -1,28 +1,15 @@
 <?php
 /**
  * The autocomplete field.
- *
- * @package Meta Box
- */
-
-/**
- * Autocomplete field class.
  */
 class RWMB_Autocomplete_Field extends RWMB_Multiple_Values_Field {
-	/**
-	 * Enqueue scripts and styles.
-	 */
 	public static function admin_enqueue_scripts() {
-		wp_enqueue_style( 'rwmb-autocomplete', RWMB_CSS_URL . 'autocomplete.css', '', RWMB_VER );
-		wp_enqueue_script( 'rwmb-autocomplete', RWMB_JS_URL . 'autocomplete.js', array( 'jquery-ui-autocomplete' ), RWMB_VER, true );
+		wp_enqueue_style( 'rwmb-autocomplete', RWMB_CSS_URL . 'autocomplete.css', [], RWMB_VER );
+		wp_enqueue_script( 'rwmb-autocomplete', RWMB_JS_URL . 'autocomplete.js', [ 'jquery-ui-autocomplete' ], RWMB_VER, true );
 
-		RWMB_Helpers_Field::localize_script_once(
-			'rwmb-autocomplete',
-			'RWMB_Autocomplete',
-			array(
-				'delete' => __( 'Delete', 'meta-box' ),
-			)
-		);
+		RWMB_Helpers_Field::localize_script_once( 'rwmb-autocomplete', 'RWMB_Autocomplete', [
+			'delete' => __( 'Delete', 'meta-box' ),
+		] );
 	}
 
 	/**
@@ -34,19 +21,19 @@ class RWMB_Autocomplete_Field extends RWMB_Multiple_Values_Field {
 	 */
 	public static function html( $meta, $field ) {
 		if ( ! is_array( $meta ) ) {
-			$meta = array( $meta );
+			$meta = [ $meta ];
 		}
 
 		$field   = apply_filters( 'rwmb_autocomplete_field', $field, $meta );
 		$options = $field['options'];
 
 		if ( is_array( $field['options'] ) ) {
-			$options = array();
+			$options = [];
 			foreach ( $field['options'] as $value => $label ) {
-				$options[] = array(
+				$options[] = [
 					'value' => $value,
 					'label' => $label,
-				);
+				];
 			}
 			$options = wp_json_encode( $options );
 		}
@@ -55,9 +42,8 @@ class RWMB_Autocomplete_Field extends RWMB_Multiple_Values_Field {
 		// This field doesn't store field values, so it doesn't have "name" attribute.
 		// The value(s) of the field is store in hidden input(s). See below.
 		$html = sprintf(
-			'<input type="text" class="rwmb-autocomplete-search" size="%s">
+			'<input type="text" class="rwmb-autocomplete-search">
 			<input type="hidden" name="%s" class="rwmb-autocomplete" data-options="%s" disabled>',
-			esc_attr( $field['size'] ),
 			esc_attr( $field['field_name'] ),
 			esc_attr( $options )
 		);
@@ -104,22 +90,5 @@ class RWMB_Autocomplete_Field extends RWMB_Multiple_Values_Field {
 		$html .= '</div>'; // .rwmb-autocomplete-results.
 
 		return $html;
-	}
-
-	/**
-	 * Normalize parameters for field.
-	 *
-	 * @param array $field Field parameters.
-	 * @return array
-	 */
-	public static function normalize( $field ) {
-		$field = parent::normalize( $field );
-		$field = wp_parse_args(
-			$field,
-			array(
-				'size' => 30,
-			)
-		);
-		return $field;
 	}
 }

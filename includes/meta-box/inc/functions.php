@@ -1,8 +1,6 @@
 <?php
 /**
  * Plugin public functions.
- *
- * @package Meta Box
  */
 
 if ( ! function_exists( 'rwmb_meta' ) ) {
@@ -15,7 +13,7 @@ if ( ! function_exists( 'rwmb_meta' ) ) {
 	 *
 	 * @return mixed
 	 */
-	function rwmb_meta( $key, $args = array(), $post_id = null ) {
+	function rwmb_meta( $key, $args = [], $post_id = null ) {
 		$args  = wp_parse_args( $args );
 		$field = rwmb_get_field_settings( $key, $args, $post_id );
 
@@ -26,7 +24,7 @@ if ( ! function_exists( 'rwmb_meta' ) ) {
 		if ( false === $field ) {
 			return apply_filters( 'rwmb_meta', rwmb_meta_legacy( $key, $args, $post_id ) );
 		}
-		$meta = in_array( $field['type'], array( 'oembed', 'map', 'osm' ), true ) ?
+		$meta = in_array( $field['type'], [ 'oembed', 'map', 'osm' ], true ) ?
 			rwmb_the_value( $key, $args, $post_id, false ) :
 			rwmb_get_value( $key, $args, $post_id );
 		return apply_filters( 'rwmb_meta', $meta, $key, $args, $post_id );
@@ -42,8 +40,8 @@ if ( ! function_exists( 'rwmb_set_meta' ) ) {
 	 * @param string $value     Meta value. Required.
 	 * @param array  $args      Array of arguments. Optional.
 	 */
-	function rwmb_set_meta( $object_id, $key, $value, $args = array() ) {
-		$args = wp_parse_args( $args );
+	function rwmb_set_meta( $object_id, $key, $value, $args = [] ) {
+		$args  = wp_parse_args( $args );
 		$field = rwmb_get_field_settings( $key, $args, $object_id );
 
 		if ( false === $field ) {
@@ -66,13 +64,11 @@ if ( ! function_exists( 'rwmb_get_field_settings' ) ) {
 	 *
 	 * @return array
 	 */
-	function rwmb_get_field_settings( $key, $args = array(), $object_id = null ) {
-		$args = wp_parse_args(
-			$args,
-			array(
-				'object_type' => 'post',
-			)
-		);
+	function rwmb_get_field_settings( $key, $args = [], $object_id = null ) {
+		$args = wp_parse_args( $args, [
+			'object_type' => 'post',
+			'type'        => '',
+		] );
 
 		/**
 		 * Filter meta type from object type and object id.
@@ -81,7 +77,7 @@ if ( ! function_exists( 'rwmb_get_field_settings' ) ) {
 		 * @var string     Object type.
 		 * @var string|int Object id.
 		 */
-		$type = apply_filters( 'rwmb_meta_type', '', $args['object_type'], $object_id );
+		$type = apply_filters( 'rwmb_meta_type', $args['type'], $args['object_type'], $object_id );
 		if ( ! $type ) {
 			$type = get_post_type( $object_id );
 		}
@@ -100,21 +96,18 @@ if ( ! function_exists( 'rwmb_meta_legacy' ) ) {
 	 *
 	 * @return mixed
 	 */
-	function rwmb_meta_legacy( $key, $args = array(), $post_id = null ) {
-		$args  = wp_parse_args(
-			$args,
-			array(
-				'type'     => 'text',
-				'multiple' => false,
-				'clone'    => false,
-			)
-		);
-		$field = array(
+	function rwmb_meta_legacy( $key, $args = [], $post_id = null ) {
+		$args  = wp_parse_args( $args, [
+			'type'     => 'text',
+			'multiple' => false,
+			'clone'    => false,
+		] );
+		$field = [
 			'id'       => $key,
 			'type'     => $args['type'],
 			'clone'    => $args['clone'],
 			'multiple' => $args['multiple'],
-		);
+		];
 
 		$method = 'get_value';
 		switch ( $args['type'] ) {
@@ -145,7 +138,7 @@ if ( ! function_exists( 'rwmb_get_value' ) ) {
 	 *
 	 * @return mixed false if field doesn't exist. Field value otherwise.
 	 */
-	function rwmb_get_value( $field_id, $args = array(), $post_id = null ) {
+	function rwmb_get_value( $field_id, $args = [], $post_id = null ) {
 		$args  = wp_parse_args( $args );
 		$field = rwmb_get_field_settings( $field_id, $args, $post_id );
 
@@ -178,7 +171,7 @@ if ( ! function_exists( 'rwmb_the_value' ) ) {
 	 *
 	 * @return string
 	 */
-	function rwmb_the_value( $field_id, $args = array(), $post_id = null, $echo = true ) {
+	function rwmb_the_value( $field_id, $args = [], $post_id = null, $echo = true ) {
 		$args  = wp_parse_args( $args );
 		$field = rwmb_get_field_settings( $field_id, $args, $post_id );
 
@@ -200,7 +193,7 @@ if ( ! function_exists( 'rwmb_the_value' ) ) {
 		$output = apply_filters( 'rwmb_the_value', $output, $field, $args, $post_id );
 
 		if ( $echo ) {
-			echo $output; // WPCS: XSS OK.
+			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput
 		}
 
 		return $output;
@@ -217,11 +210,11 @@ if ( ! function_exists( 'rwmb_get_object_fields' ) ) {
 	 * @return array
 	 */
 	function rwmb_get_object_fields( $type_or_id, $object_type = 'post' ) {
-		$meta_boxes = rwmb_get_registry( 'meta_box' )->get_by( array( 'object_type' => $object_type ) );
-		array_walk( $meta_boxes, 'rwmb_check_meta_box_supports', array( $object_type, $type_or_id ) );
+		$meta_boxes = rwmb_get_registry( 'meta_box' )->get_by( [ 'object_type' => $object_type ] );
+		array_walk( $meta_boxes, 'rwmb_check_meta_box_supports', [ $object_type, $type_or_id ] );
 		$meta_boxes = array_filter( $meta_boxes );
 
-		$fields = array();
+		$fields = [];
 		foreach ( $meta_boxes as $meta_box ) {
 			foreach ( $meta_box->fields as $field ) {
 				$fields[ $field['id'] ] = $field;
@@ -254,7 +247,7 @@ if ( ! function_exists( 'rwmb_check_meta_box_supports' ) ) {
 				$type = $type_or_id;
 				if ( is_numeric( $type_or_id ) ) {
 					$term = get_term( $type_or_id );
-					$type = is_array( $term ) ? $term->taxonomy : null;
+					$type = is_wp_error( $term ) || ! $term ? null : $term->taxonomy;
 				}
 				$prop = 'taxonomies';
 				break;
@@ -277,62 +270,6 @@ if ( ! function_exists( 'rwmb_check_meta_box_supports' ) ) {
 	}
 }
 
-if ( ! function_exists( 'rwmb_meta_shortcode' ) ) {
-	/**
-	 * Shortcode to display meta value.
-	 *
-	 * @param array $atts Shortcode attributes, same as rwmb_meta() function, but has more "meta_key" parameter.
-	 *
-	 * @return string
-	 */
-	function rwmb_meta_shortcode( $atts ) {
-		$atts = wp_parse_args(
-			$atts,
-			array(
-				'id'        => '',
-				'object_id' => null,
-				'attribute' => '',
-			)
-		);
-		RWMB_Helpers_Array::change_key( $atts, 'post_id', 'object_id' );
-		RWMB_Helpers_Array::change_key( $atts, 'meta_key', 'id' );
-
-		if ( empty( $atts['id'] ) ) {
-			return '';
-		}
-
-		$field_id  = $atts['id'];
-		$object_id = $atts['object_id'];
-		unset( $atts['id'], $atts['object_id'] );
-
-		$attribute = $atts['attribute'];
-		if ( ! $attribute ) {
-			return rwmb_the_value( $field_id, $atts, $object_id, false );
-		}
-
-		$value = rwmb_get_value( $field_id, $atts, $object_id );
-
-		if ( ! is_array( $value ) && ! is_object( $value ) ) {
-			return $value;
-		}
-
-		if ( is_object( $value ) ) {
-			return $value->$attribute;
-		}
-
-		if ( isset( $value[ $attribute ] ) ) {
-			return $value[ $attribute ];
-		}
-
-		$value = wp_list_pluck( $value, $attribute );
-		$value = implode( ',', array_filter( $value ) );
-
-		return $value;
-	}
-
-	add_shortcode( 'rwmb_meta', 'rwmb_meta_shortcode' );
-}
-
 if ( ! function_exists( 'rwmb_get_registry' ) ) {
 	/**
 	 * Get the registry by type.
@@ -343,7 +280,7 @@ if ( ! function_exists( 'rwmb_get_registry' ) ) {
 	 * @return object
 	 */
 	function rwmb_get_registry( $type ) {
-		static $data = array();
+		static $data = [];
 
 		$class = 'RWMB_' . RWMB_Helpers_String::title_case( $type ) . '_Registry';
 		if ( ! isset( $data[ $type ] ) ) {

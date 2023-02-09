@@ -1,14 +1,12 @@
 <?php
 /**
  * The key-value field which allows users to add pairs of keys and values.
- *
- * @package Meta Box
  */
+class RWMB_Key_Value_Field extends RWMB_Input_Field {
+	public static function admin_enqueue_scripts() {
+		wp_enqueue_style( 'rwmb-key-value', RWMB_CSS_URL . 'key-value.css', [], RWMB_VER );
+	}
 
-/**
- * Key-value field class.
- */
-class RWMB_Key_Value_Field extends RWMB_Text_Field {
 	/**
 	 * Get field HTML.
 	 *
@@ -33,15 +31,7 @@ class RWMB_Key_Value_Field extends RWMB_Text_Field {
 		return $html;
 	}
 
-	/**
-	 * Show begin HTML markup for fields.
-	 *
-	 * @param mixed $meta  Meta value.
-	 * @param array $field Field parameters.
-	 *
-	 * @return string
-	 */
-	public static function begin_html( $meta, $field ) {
+	protected static function begin_html( array $field ) : string {
 		$desc = $field['desc'] ? "<p id='{$field['id']}_description' class='description'>{$field['desc']}</p>" : '';
 
 		if ( empty( $field['name'] ) ) {
@@ -60,40 +50,8 @@ class RWMB_Key_Value_Field extends RWMB_Text_Field {
 		);
 	}
 
-	/**
-	 * Do not show field description.
-	 *
-	 * @param array $field Field parameters.
-	 *
-	 * @return string
-	 */
-	public static function input_description( $field ) {
+	protected static function input_description( array $field ) : string {
 		return '';
-	}
-
-	/**
-	 * Do not show field description.
-	 *
-	 * @param array $field Field parameters.
-	 *
-	 * @return string
-	 */
-	public static function label_description( $field ) {
-		return '';
-	}
-
-	/**
-	 * Escape meta for field output.
-	 *
-	 * @param mixed $meta Meta value.
-	 *
-	 * @return mixed
-	 */
-	public static function esc_meta( $meta ) {
-		foreach ( (array) $meta as $k => $pairs ) {
-			$meta[ $k ] = array_map( 'esc_attr', (array) $pairs );
-		}
-		return $meta;
 	}
 
 	/**
@@ -129,13 +87,10 @@ class RWMB_Key_Value_Field extends RWMB_Text_Field {
 		$field             = parent::normalize( $field );
 
 		$field['attributes']['type'] = 'text';
-		$field['placeholder']        = wp_parse_args(
-			(array) $field['placeholder'],
-			array(
-				'key'   => __( 'Key', 'meta-box' ),
-				'value' => __( 'Value', 'meta-box' ),
-			)
-		);
+		$field['placeholder']        = wp_parse_args( (array) $field['placeholder'], [
+			'key'   => __( 'Key', 'meta-box' ),
+			'value' => __( 'Value', 'meta-box' ),
+		] );
 		return $field;
 	}
 

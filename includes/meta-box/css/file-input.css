@@ -1,17 +1,24 @@
-.rwmb-file_input-wrapper > .rwmb-input {
+.rwmb-file-input-inner {
+	width: 100%;
 	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
+	align-items: center;
+	grid-gap: 4px;
 }
-.rwmb-file_input.rwmb-file_input {
-	line-height: 18px;
-	margin: 0 5px 0 0;
-	padding: 4px;
-	width: 300px;
+.rwmb-file_input {
+	margin: 0 4px 0 0;
 }
-@media (max-width: 767px) {
-	.rwmb-file_input.rwmb-file_input,
-	.rwmb-file-input-select {
-		margin-bottom: 5px;
-	}
+.rwmb-file-input-inner .button {
+	margin: 0;
+}
+.rwmb-file-input-image {
+	width: 150px;
+	height: auto;
+	margin-bottom: 4px;
+}
+.rwmb-file-input-image img{
+	max-width: 100%;
+	height: auto;
+}
+.rwmb-file-input-hidden{
+	display: none;
 }
