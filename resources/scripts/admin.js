@@ -1,2 +1,3 @@
-import './admin/woo-mail-reminder-admin'
+import './admin/settings'
 import './admin/reminder-edit'
+import './admin/reminders-table'

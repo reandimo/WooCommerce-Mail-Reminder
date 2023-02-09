@@ -90,8 +90,8 @@
 
 			if ( 'radio' === type ) {
 				$field.prop( 'checked', $field.val() === defaultValue );
-			} else if ( $field.hasClass( 'rwmb-checkbox' ) ) {
-					$field.prop( 'checked', !! defaultValue );
+			} else if ( $field.hasClass( 'rwmb-checkbox' ) || $field.hasClass( 'rwmb-switch' ) ) {
+				$field.prop( 'checked', !! defaultValue );
 			} else if ( $field.hasClass( 'rwmb-checkbox_list' ) ) {
 				var value = $field.val();
 				$field.prop( 'checked', Array.isArray( defaultValue ) ? -1 !== defaultValue.indexOf( value ) : value == defaultValue );
@@ -156,8 +156,14 @@
 	 * @param $container .rwmb-input container
 	 */
 	function toggleRemoveButtons( $container ) {
-		var $clones = $container.children( '.rwmb-clone' );
-		$clones.children( '.remove-clone' ).toggle( $clones.length > 1 );
+
+		var $clones = $container.children( '.rwmb-clone' ),
+		    minClone = 1;
+	
+		if ( $container.data( 'min-clone' ) ) {
+			minClone = parseInt( $container.data( 'min-clone' ) );
+		}
+		$clones.children( '.remove-clone' ).toggle( $clones.length > minClone );
 
 		// Recursive for nested groups.
 		$container.find( '.rwmb-input' ).each( function () {
@@ -230,22 +236,9 @@
 			start: function ( event, ui ) {
 				// Make the placeholder has the same height as dragged item
 				ui.placeholder.height( ui.item.outerHeight() );
-
-				// Fixed WYSIWYG field blank when inside a sortable, cloneable group.
-				// https://stackoverflow.com/a/25667486/371240
-				if ( window.tinymce ) {
-					ui.item.find( '.rwmb-wysiwyg' ).each( function () {
-						tinymce.execCommand( 'mceRemoveEditor', false, this.id );
-					} );
-				}
 			},
-			update: function( event, ui ) {
-				if ( window.tinymce ) {
-					ui.item.find( '.rwmb-wysiwyg' ).each( function () {
-						tinymce.execCommand( 'mceAddEditor', true, this.id );
-					} );
-				}
-
+			stop: function( event, ui ) {
+				ui.item.trigger( 'mb_init_editors' );
 				ui.item.find( rwmb.inputSelectors ).first().trigger( 'mb_change' );
 			}
 		} );
@@ -268,4 +261,11 @@
 		.on( 'mb_ready', init )
 		.on( 'click', '.add-clone', addClone )
 		.on( 'click', '.remove-clone', removeClone );
+
+	// Export for use outside.
+	rwmb.cloneIndex = cloneIndex;
+	rwmb.cloneValue = cloneValue;
+	rwmb.sortClones = sortClones;
+	rwmb.toggleRemoveButtons = toggleRemoveButtons;
+	rwmb.toggleAddButton = toggleAddButton;
 } )( jQuery, rwmb );

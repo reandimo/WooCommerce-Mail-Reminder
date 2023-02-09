@@ -6,9 +6,11 @@ const mix = require('laravel-mix');
 mix.setResourceRoot('./resources');
 
 mix.options({
+    // test: /\.(woff|woff2|eot|ttf|otf)$/,
+    loader: "file-loader",
     fileLoaderDirs:  {
-        fonts: '../resources/fonts',
-        images: '../resources/images',
+        fonts: '../../../resources/fonts',
+        images: '../../../resources/images',
     }
 });
 
@@ -22,9 +24,9 @@ mix.webpackConfig({
 });
 
 // ADMIN
-mix.js('resources/scripts/admin.js', 'js').setPublicPath('./assets/js');
-mix.sass('resources/styles/admin.scss', 'css').setPublicPath('./assets/css');
+mix.js('resources/scripts/admin.js', 'js').setPublicPath('./assets');
+mix.sass('resources/styles/admin.scss', 'css').setPublicPath('./assets');
 
 // FRONTEND
-mix.js('resources/scripts/frontend.js', 'js').setPublicPath('./assets/js');
-mix.sass('resources/styles/frontend.scss', 'css').setPublicPath('./assets/css');
+mix.js('resources/scripts/frontend.js', 'js').setPublicPath('./assets');
+mix.sass('resources/styles/frontend.scss', 'css').setPublicPath('./assets');

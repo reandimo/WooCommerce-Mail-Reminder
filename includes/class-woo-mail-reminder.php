@@ -166,7 +166,9 @@ class Woo_Mail_Reminder {
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_options_page' );
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_setting' );
 		$this->loader->add_action( 'init', $plugin_admin, 'woomr_reminder_post_type' );
-		$this->loader->add_action( 'init', $plugin_admin, 'woomr_preview_emails' ); //Preview Emails
+		if (isset($_GET['preview_woomr_mail'])) {
+			$this->loader->add_action( 'init', $plugin_admin, 'woomr_preview_emails' ); //Preview Emails
+		}
 		$this->loader->add_action ('cron_schedules', $plugin_admin,'woomr_days_after');  
 		$this->loader->add_action ('woomr_cron', $plugin_admin,'woomr_job');  
 		//Reminder Column
@@ -177,13 +179,13 @@ class Woo_Mail_Reminder {
 		$this->loader->add_filter( 'post_row_actions', $plugin_admin, 'woomr_remove_quick_actions', 10, 2 );
 		$this->loader->add_action( 'load-edit.php', $plugin_admin, 'woomr_set_status_reminder' );
 		//Check Requirements
-		$this->loader->add_action( 'tgmpa_register', $plugin_admin, 'woomr_register_required_plugins' );
+		// $this->loader->add_action( 'tgmpa_register', $plugin_admin, 'woomr_register_required_plugins' );
 		//Metabox
 		$this->loader->add_filter( 'rwmb_meta_boxes', $plugin_admin, 'woomr_reminder_meta' );
 		// Action Links
 		$this->loader->add_action ('plugin_action_links_' . plugin_basename( WOOMR_FILE ), $plugin_admin,'woomr_action_links'); 
 		//Ajax
-		$this->loader->add_action( 'wp_ajax_woomr_deactivate_reminder', $plugin_admin, 'woomr_deactivate_reminder' );
+		$this->loader->add_action( 'wp_ajax_woomr_toggle_reminder', $plugin_admin, 'woomr_toggle_reminder' );
 		$this->loader->add_action( 'wp_ajax_woomr_test_mail', $plugin_admin, 'woomr_test_mail' ); 
 
 	}

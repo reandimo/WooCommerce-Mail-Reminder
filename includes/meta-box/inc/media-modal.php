@@ -1,13 +1,6 @@
 <?php
 /**
  * Add support for editing attachment custom fields in the media modal.
- *
- * @package Meta Box
- */
-
-/**
- * The media modal class.
- * Handling showing and saving custom fields in the media modal.
  */
 class RWMB_Media_Modal {
 	/**
@@ -15,24 +8,26 @@ class RWMB_Media_Modal {
 	 *
 	 * @var array
 	 */
-	protected $fields = array();
+	protected $fields = [];
 
-	/**
-	 * Initialize.
-	 */
 	public function init() {
 		// Meta boxes are registered at priority 20, so we use 30 to capture them all.
-		add_action( 'init', array( $this, 'get_fields' ), 30 );
+		add_action( 'init', [ $this, 'get_fields' ], 30 );
 
-		add_filter( 'attachment_fields_to_edit', array( $this, 'add_fields' ), 11, 2 );
-		add_filter( 'attachment_fields_to_save', array( $this, 'save_fields' ), 11, 2 );
+		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue' ] );
 
-		add_filter( 'rwmb_show', array( $this, 'is_in_normal_mode' ), 10, 2 );
+		add_filter( 'attachment_fields_to_edit', [ $this, 'add_fields' ], 11, 2 );
+		add_filter( 'attachment_fields_to_save', [ $this, 'save_fields' ], 11, 2 );
+
+		add_filter( 'rwmb_show', [ $this, 'is_in_normal_mode' ], 10, 2 );
 	}
 
-	/**
-	 * Get list of custom fields and store in the current object for future use.
-	 */
+	public function enqueue() {
+		if ( get_current_screen()->post_type === 'attachment' ) {
+			wp_enqueue_style( 'rwmb', RWMB_CSS_URL . 'media-modal.css', [], RWMB_VER );
+		}
+	}
+
 	public function get_fields() {
 		$meta_boxes = rwmb_get_registry( 'meta_box' )->all();
 		foreach ( $meta_boxes as $meta_box ) {
@@ -61,7 +56,12 @@ class RWMB_Media_Modal {
 			$form_field['value'] = $meta;
 
 			$field['field_name'] = 'attachments[' . $post->ID . '][' . $field['field_name'] . ']';
-			$form_field['html']  = RWMB_Field::call( $field, 'html', $meta );
+
+			ob_start();
+			$field['name'] = ''; // Don't show field label as it's already handled by WordPress.
+
+			RWMB_Field::call( 'show', $field, true, $post->ID );
+			$form_field['html'] = ob_get_clean();
 
 			$form_fields[ $field['id'] ] = $form_field;
 		}
@@ -93,26 +93,22 @@ class RWMB_Media_Modal {
 		return $post;
 	}
 
-	/**
-	 * Whether or not show the meta box when editing custom fields in the normal mode.
-	 *
-	 * @param bool  $show     Whether to show the meta box in normal editing mode.
-	 * @param array $meta_box Meta Box parameters.
-	 *
-	 * @return bool
-	 */
-	public function is_in_normal_mode( $show, $meta_box ) {
-		return $show && ! $this->is_in_modal( $meta_box );
+	public function is_in_normal_mode( bool $show, array $meta_box ) : bool {
+		if ( ! $show ) {
+			return $show;
+		}
+
+		// Show the meta box in the modal on Media screen.
+		global $hook_suffix;
+		if ( $hook_suffix === 'upload.php' ) {
+			return $this->is_in_modal( $meta_box );
+		}
+
+		// Show the meta box only if not in the modal on the post edit screen.
+		return ! $this->is_in_modal( $meta_box );
 	}
 
-	/**
-	 * Check if the meta box is for editing custom fields in the media modal.
-	 *
-	 * @param array $meta_box Meta Box parameters.
-	 *
-	 * @return bool
-	 */
-	protected function is_in_modal( $meta_box ) {
+	private function is_in_modal( array $meta_box ) : bool {
 		return in_array( 'attachment', $meta_box['post_types'], true ) && ! empty( $meta_box['media_modal'] );
 	}
 }

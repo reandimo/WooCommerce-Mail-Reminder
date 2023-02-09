@@ -46,6 +46,15 @@ With this plugin you can send an email to your customers who have made a purchas
 
 == Changelog ==
 
+= 1.3.0 (09-02-2023) =
+* Folder structure improved
+* Toggle status with AJAX on CPT table
+* JS refactor and dependency management with Webpack implemented
+* CSS refactor and dependency management with Webpack implemented
+* Minor UI bugs fixed
+* Bootstrap JS removed, now use tippy instead for popovers
+* Metabox updated to 5.6.16
+
 = 1.2.1 (15-02-2022) =
 * FIX: UI Bugs related fixed 
 * Reorder code

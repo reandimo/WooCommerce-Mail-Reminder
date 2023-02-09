@@ -75,7 +75,7 @@ class Woo_Mail_Reminder_Admin
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url(__FILE__) . '/assets/css/frontend.css', [], filemtime( plugin_dir_url(__FILE__) . '/public/css/frontend.css' ) );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url(dirname(__FILE__)) . 'assets/css/admin.css', [], filemtime( plugin_dir_path(dirname(__FILE__)) . 'assets/css/admin.css' ) );
 
 	}
 
@@ -99,18 +99,8 @@ class Woo_Mail_Reminder_Admin
 		 * class.
 		 */
 
-		//Select2
-		wp_enqueue_script($this->plugin_name . 'select2', plugin_dir_url(__FILE__) . 'js/select2.js', array('jquery'), false, true);
-		//blockUI
-		wp_enqueue_script($this->plugin_name . '_blockui', plugin_dir_url(__FILE__) . 'js/jquery.blockUI.js', array('jquery'), false, true);
-		// General
-		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/woo-mail-reminder-admin.js', array('jquery'), $this->version, true);
-		// bootstrap & edit
-		global $typenow;
-		if ($this->is_edit_page() && "woomr_reminder" == $typenow) {
-			wp_enqueue_script($this->plugin_name . '_bootstrap', plugin_dir_url(dirname(__FILE__)) . 'assets/bootstrap/js/bootstrap.min.js?', array('jquery'), false, true);
-			wp_enqueue_script($this->plugin_name . '-reminder-edit', plugin_dir_url(__FILE__) . 'js/reminder-edit.js', array('jquery'), $this->version, true);
-		}
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url(dirname(__FILE__)) . 'assets/js/admin.js', [], filemtime( plugin_dir_path(dirname(__FILE__)) . 'assets/js/admin.js' ) );
+
 	}
 
 	/**
@@ -196,7 +186,7 @@ class Woo_Mail_Reminder_Admin
 				array(
 					'id' => $prefix . 'days_after',
 					'type' => 'number',
-					'name' => esc_html__('Days after', 'woo-mail-reminder') . ' <i class="fa fa-info info-icon" data-placement="right" data-title="' . __('Days After', 'woo-mail-reminder') . '" data-image="' . plugin_dir_url(dirname(__FILE__)) . 'assets/images/placeholder.png' . '" data-desc="' . __('The interval of time between the customer\'s last order and the current date, for sending the reminders in days. Example: if you set 10 days, when the server checks the reminders only will be sent to customers with 10 days after.', 'woo-mail-reminder') . '"></i> ',
+					'name' => esc_html__('Days after', 'woo-mail-reminder') . ' <i class="fa fa-info-circle info-icon" data-title="' . __('Days After', 'woo-mail-reminder') . '" data-image="' . plugin_dir_url(dirname(__FILE__)) . 'resources/images/placeholder.png' . '" data-desc="' . __('The interval of time between the customer\'s last order and the current date, for sending the reminders in days. Example: if you set 10 days, when the server checks the reminders only will be sent to customers with 10 days after.', 'woo-mail-reminder') . '"></i> ',
 					'desc' => esc_html__('Number of days after customer\'s last order', 'woo-mail-reminder'),
 					'std' => '7',
 					'placeholder' => esc_html__('Days After', 'woo-mail-reminder'),
@@ -206,14 +196,14 @@ class Woo_Mail_Reminder_Admin
 				array(
 					'id' => $prefix . 'subject',
 					'type' => 'text',
-					'name' => esc_html__('Subject', 'woo-mail-reminder') . ' <i class="fa fa-info info-icon" data-placement="right" data-title="' . __('Subject', 'woo-mail-reminder') . '" data-image="' . plugin_dir_url(dirname(__FILE__)) . 'assets/images/subject.png' . '" data-desc="' . __('The Subject of the Email.', 'woo-mail-reminder') . '"></i> ',
+					'name' => esc_html__('Subject', 'woo-mail-reminder') . ' <i class="fa fa-info-circle info-icon" data-title="' . __('Subject', 'woo-mail-reminder') . '" data-image="' . plugin_dir_url(dirname(__FILE__)) . 'resources/images/subject.png' . '" data-desc="' . __('The Subject of the Email.', 'woo-mail-reminder') . '"></i> ',
 					'desc' => esc_html__('Email subject', 'woo-mail-reminder'),
 					'placeholder' => esc_html__('Subject', 'woo-mail-reminder'),
 				),
 				array(
 					'id' => $prefix . 'heading',
 					'type' => 'text',
-					'name' => esc_html__('Heading', 'woo-mail-reminder') . ' <i class="fa fa-info info-icon" data-title="' . __('Heading', 'woo-mail-reminder') . '" data-image="' . plugin_dir_url(dirname(__FILE__)) . 'assets/images/default-heading.png' . '" data-desc="' . __('Set a Heading for the email template.', 'woo-mail-reminder') . '"></i> ',
+					'name' => esc_html__('Heading', 'woo-mail-reminder') . ' <i class="fa fa-info-circle info-icon" data-title="' . __('Heading', 'woo-mail-reminder') . '" data-image="' . plugin_dir_url(dirname(__FILE__)) . 'resources/images/default-heading.png' . '" data-desc="' . __('Set a Heading for the email template.', 'woo-mail-reminder') . '"></i> ',
 					'desc' => esc_html__('Email\'s Heading', 'woo-mail-reminder'),
 					'placeholder' => esc_html__('Heading', 'woo-mail-reminder'),
 				),
@@ -267,9 +257,6 @@ class Woo_Mail_Reminder_Admin
 	 */
 	public function woomr_display_options_page()
 	{
-
-		//Include Bootstrap
-		wp_enqueue_script($this->plugin_name . '_bootstrap-js', plugin_dir_url(dirname(__FILE__)) . 'assets/bootstrap/js/bootstrap.min.js?' . rand(0, 10), array('jquery'), false, true);
 		include_once 'partials/woo-mail-reminder-admin-display.php';
 	}
 
@@ -295,7 +282,7 @@ class Woo_Mail_Reminder_Admin
 
 		// add_settings_field(
 		// 		$this->option_name . '_days',
-		// 		__( 'Days after last order', 'woo-mail-reminder' ) . ' <i class="fa fa-info info-icon" data-title="'. __('Help', 'woo-mail-reminder') .'" data-image="'. plugin_dir_url( dirname( __FILE__ ) ) . 'assets/images/placeholder.png' .'" data-desc="'. __('Set a Default Heading for the email templates in case you didn\'t assign one to a reminder.', 'woo-mail-reminder') .'"></i> ',
+		// 		__( 'Days after last order', 'woo-mail-reminder' ) . ' <i class="fa fa-info-circle info-icon" data-title="'. __('Help', 'woo-mail-reminder') .'" data-image="'. plugin_dir_url( dirname( __FILE__ ) ) . 'resources/images/placeholder.png' .'" data-desc="'. __('Set a Default Heading for the email templates in case you didn\'t assign one to a reminder.', 'woo-mail-reminder') .'"></i> ',
 		// 		array( $this, $this->option_name . '_days_cb' ),
 		// 		$this->plugin_name,
 		// 		$this->option_name . '_general',
@@ -304,7 +291,7 @@ class Woo_Mail_Reminder_Admin
 
 		add_settings_field(
 			$this->option_name . '_intervals',
-			__('Check for Reminders every', 'woo-mail-reminder') . ' <i class="fa fa-info info-icon" data-title="' . __('The Interval', 'woo-mail-reminder') . '" data-image="' . plugin_dir_url(dirname(__FILE__)) . 'assets/images/placeholder.png' . '" data-desc="' . __('The interval of time for sending the reminders (cron job), in days. Example: if you set 5 days, the server will check the reminders every 5 days.', 'woo-mail-reminder') . '"></i> ',
+			__('Check for Reminders every', 'woo-mail-reminder') . ' <i class="fa fa-info-circle info-icon" data-title="' . __('The Interval', 'woo-mail-reminder') . '" data-image="' . plugin_dir_url(dirname(__FILE__)) . 'resources/images/placeholder.png' . '" data-desc="' . __('The interval of time for sending the reminders (cron job), in days. Example: if you set 5 days, the server will check the reminders every 5 days.', 'woo-mail-reminder') . '"></i> ',
 			array($this, $this->option_name . '_intervals_cb'),
 			$this->plugin_name,
 			$this->option_name . '_general',
@@ -331,7 +318,7 @@ class Woo_Mail_Reminder_Admin
 
 		add_settings_field(
 			$this->option_name . '_default_heading',
-			__('Default Heading', 'woo-mail-reminder') . ' <i class="fa fa-info info-icon" data-title="' . __('Default Heading', 'woo-mail-reminder') . '" data-image="' . plugin_dir_url(dirname(__FILE__)) . 'assets/images/default-heading.png' . '" data-desc="' . __('Set a Default Heading for the email templates in case you didn\'t assign one to a reminder.', 'woo-mail-reminder') . '"></i> ',
+			__('Default Heading', 'woo-mail-reminder') . ' <i class="fa fa-info-circle info-icon" data-title="' . __('Default Heading', 'woo-mail-reminder') . '" data-image="' . plugin_dir_url(dirname(__FILE__)) . 'resources/images/default-heading.png' . '" data-desc="' . __('Set a Default Heading for the email templates in case you didn\'t assign one to a reminder.', 'woo-mail-reminder') . '"></i> ',
 			array($this, $this->option_name . '_heading_cb'),
 			$this->plugin_name,
 			$this->option_name . '_general',
@@ -534,7 +521,6 @@ class Woo_Mail_Reminder_Admin
 		wp_die();
 	}
 
-
 	/**
 	 * Set status to a reminder
 	 *
@@ -543,30 +529,38 @@ class Woo_Mail_Reminder_Admin
 	 * @param  json
 	 */
 
-	public function woomr_deactivate_reminder()
+	public function woomr_toggle_reminder()
 	{
 
 		$reminder_id = $_POST['reminder_id'];
 
-		if (!empty($reminder_id)) {
+		if (empty($reminder_id)) {
+			wp_send_json(['code' => 0, 'message' => 'No ID sent.']); //We have a problem
+		}
 
-			$currentStatus = get_post_meta($reminder_id, 'status', true);
+		$currentStatus = get_post_meta($reminder_id, 'status', true);
 
-			if ($currentStatus == 1) {
-				$update = update_post_meta($reminder_id, 'status', 1);
-			} else {
-				$update = update_post_meta($reminder_id, 'status', 1);
-			}
+		if ($currentStatus == 1) {
+			$update = update_post_meta($reminder_id, 'status', 0);
+			$message = __('Reminder deactivated!', 'woo-mail-reminder');
+			$column_td = '<span class="dashicons dashicons-no-alt"></span>' . __('Inactive', 'woo-mail-reminder');
+			$action_link = __('Set Active', 'woo-mail-reminder');
+		} else {
+			$update = update_post_meta($reminder_id, 'status', 1);
+			$message = __('Reminder is now active!', 'woo-mail-reminder');
+			$column_td = '<span class="dashicons dashicons-yes"></span> ' . __('Active', 'woo-mail-reminder');
+			$action_link = __('Set Inactive', 'woo-mail-reminder');
+		}
 
-			//Check
-			if ($update == true) {
-				echo json_encode(['code' => 1, 'message' => __('Reminder is now active!', 'woo-mail-reminder')]); //All Good bro!
-			} else {
-				echo json_encode(['code' => 0, 'message' => __('Reminder deactivated!', 'woo-mail-reminder')]); //We have a problem
-			}
+		//Check
+		if ($update == true) {
+			wp_send_json(['code' => 1, 'message' => $message, 'column_td' => $column_td, 'action_link' => $action_link]); //All Good bro!
+		} else {
+			wp_send_json(['code' => 0, 'message' => $message, 'column_td' => $column_td, 'action_link' => $action_link]); //We have a problem
 		}
 
 		wp_die();
+
 	}
 
 	/**
@@ -666,29 +660,28 @@ class Woo_Mail_Reminder_Admin
 	public function woomr_preview_emails()
 	{
 
-		if (isset($_GET['preview_woomr_mail'])) {
-			if (!wp_verify_nonce($_REQUEST['_wpnonce'], 'woomr-preview')) {
-				die('Security check');
-			}
-
-			// load the mailer class
-			$mailer = WC()->mailer();
-
-			// get the preview email content
-			$message = do_shortcode(stripslashes($_REQUEST['content']));
-
-			$email_heading = stripslashes($_REQUEST['heading']);
-
-			// create a new email
-			$email = new WC_Email();
-
-			// wrap the content with the email template and then add styles
-			$output = apply_filters('woocommerce_mail_content', $email->style_inline($mailer->wrap_message($email_heading, $message)));
-
-			// print the preview email
-			echo $output;
-			exit;
+		if (!wp_verify_nonce($_REQUEST['_wpnonce'], 'woomr-preview')) {
+			die('Security check');
 		}
+
+		// load the mailer class
+		$mailer = WC()->mailer();
+
+		// get the preview email content
+		$message = do_shortcode(stripslashes($_REQUEST['content']));
+
+		$email_heading = stripslashes($_REQUEST['heading']);
+
+		// create a new email
+		$email = new WC_Email();
+
+		// wrap the content with the email template and then add styles
+		$output = apply_filters('woocommerce_mail_content', $email->style_inline($mailer->wrap_message($email_heading, $message)));
+
+		// print the preview email
+		echo $output;
+		exit; 
+
 	}
 
 	/**
@@ -830,13 +823,17 @@ class Woo_Mail_Reminder_Admin
 	public function woomr_add_columns($columns)
 	{
 
+		$date_column = $columns['date'];
+		unset($columns['date']);
 		$columns['days_after'] = __('Days after', 'woo-mail-reminder');
 		$columns['heading'] = __('Heading', 'woo-mail-reminder');
 		$columns['subject'] = __('Subject', 'woo-mail-reminder');
 		$columns['last_sent'] = __('Last Sent', 'woo-mail-reminder');
 		$columns['status'] = __('Status', 'woo-mail-reminder');
+		$columns['date'] = $date_column;
 
 		return $columns;
+
 	}
 
 	/**
