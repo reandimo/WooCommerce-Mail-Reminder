@@ -1,0 +1,168 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+.info-icon {
+  margin-left: 5px;
+}
+
+/* popover */
+/*// Colors used*/
+.popover {
+  background: #222;
+  color: white;
+  width: 250px;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  z-index: 10000000000000000000000000000000000000000 !important;
+}
+
+.popover .popover__arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+}
+
+.popover[x-placement^=top] {
+  margin-bottom: 5px;
+}
+
+.popover[x-placement^=top] .popover__arrow {
+  border-width: 5px 5px 0 5px;
+  border-color: #222 transparent transparent transparent;
+  bottom: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.popover[x-placement^=bottom] {
+  margin-top: 5px;
+}
+
+.popover[x-placement^=bottom] .popover__arrow {
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #222 transparent;
+  top: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.popover[x-placement^=right] {
+  margin-left: 5px;
+}
+
+.popover[x-placement^=right] .popover__arrow {
+  border-width: 5px 5px 5px 0;
+  border-color: transparent #222 transparent transparent;
+  left: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.popover[x-placement^=left] {
+  margin-right: 5px;
+}
+
+.popover[x-placement^=left] .popover__arrow {
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #222;
+  right: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.popover .arrow,
+.popover .arrow:after {
+  position: absolute;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+.popover .arrow:after {
+  z-index: -1;
+  content: "";
+}
+
+.popover.top .arrow {
+  bottom: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border-top-color: #ffffff;
+  border-width: 10px 10px 0;
+}
+
+.popover.top .arrow:after {
+  bottom: -4px;
+  left: -11px;
+  border-top-color: black;
+  border-width: 11px 11px 0;
+}
+
+.popover.right .arrow {
+  top: 50%;
+  left: -10px;
+  margin-top: -10px;
+  border-right-color: #fff;
+  border-width: 10px 10px 10px 0;
+}
+
+.popover.right .arrow:after {
+  bottom: -11px;
+  left: -4px;
+  border-right-color: black;
+  border-width: 11px 11px 11px 0;
+}
+
+.popover.bottom .arrow {
+  top: -10px;
+  left: 50%;
+  margin-left: -10px;
+  border-bottom-color: #ffffff;
+  border-width: 0 10px 10px;
+}
+
+.popover.bottom .arrow:after {
+  top: -4px;
+  left: -11px;
+  border-bottom-color: black;
+  border-width: 0 11px 11px;
+}
+
+.popover.left .arrow {
+  top: 50%;
+  right: -10px;
+  margin-top: -10px;
+  border-left-color: #ffffff;
+  border-width: 10px 0 10px 10px;
+}
+
+.popover.left .arrow:after {
+  right: -4px;
+  bottom: -11px;
+  border-left-color: black;
+  border-width: 11px 0 11px 11px;
+}
+
+.popover-header {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #fafafa !important;
+}
+
+/*Image*/
+.popover img {
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: 8px;
+}

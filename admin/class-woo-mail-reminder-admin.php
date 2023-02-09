@@ -75,10 +75,8 @@ class Woo_Mail_Reminder_Admin
 		 * class.
 		 */
 
-		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/woo-mail-reminder-admin.css?' . rand(0, 10), array(), $this->version, 'all');
-		wp_enqueue_style($this->plugin_name . '-fa-reminder', plugin_dir_url(dirname(__FILE__)) . 'assets/fonts/font-awesome.min.css?' . rand(0, 10), array(), $this->version, 'all');
-		// wp_enqueue_style( $this->plugin_name . '-bootstrap-css', plugin_dir_url( dirname( __FILE__ ) ) . 'assets/bootstrap/css/bootstrap.min.css?' . rand(0, 10), array(), $this->version, 'all' ); 
-		wp_enqueue_style('select2-css', plugin_dir_url(__FILE__) . 'css/select2.css?' . rand(0, 10), array(), '', 'all');
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url(__FILE__) . '/assets/css/frontend.css', [], filemtime( plugin_dir_url(__FILE__) . '/public/css/frontend.css' ) );
+
 	}
 
 	/**
